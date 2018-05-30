@@ -1,0 +1,38 @@
+<div class="bg">
+  <div class="main-center">
+    <div class="form-group">
+
+      <h3 style="text-align: center">Edit Profile</h3>
+
+      <label class="cols-sm-2 control-label">Name</label>
+      <div class="cols-sm-10">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+          <input type="text" [(ngModel)]="user.name" name="first_name" id="first_name" class="form-control" placeholder="Enter Name">
+        </div>
+      </div>
+    </div> <br>
+
+    <div class="form-group">
+      <label class="cols-sm-2 control-label">Email</label>
+      <div class="cols-sm-10">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+          <input type="email" [(ngModel)]="user.email" name="email" id="email" class="form-control" placeholder="Enter Email">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="cols-sm-2 control-label">Username</label>
+      <div class="cols-sm-10">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+          <input type="text" [(ngModel)]="user.username" name="last_name" id="last_name" class="form-control" placeholder="Enter User Name">
+        </div>
+      </div>
+    </div>  <br>
+
+    <button class="btn btn-block btn-primary" *ngIf="user" (click)="onUpdate(user)">Update Info</button>
+  </div>
+</div>
