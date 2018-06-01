@@ -1,0 +1,23 @@
+import { Injectable} from "@angular/core";
+import { Router , CanActivate} from "@angular/router";
+import { AuthService} from "../services/auth.service";
+
+@Injectable()
+export class AdminGaurd implements CanActivate{
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ){
+
+  }
+
+  canActivate(){
+    if(this.authService.loggedIn()&&localStorage.getItem('isAdmin')=="true"){
+      return true;
+    } else {
+      this.router.navigate(['/loginregister']);
+      return false;
+    }
+  }
+}
