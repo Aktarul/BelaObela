@@ -1,0 +1,12 @@
+.bg2 {
+  background-color: rgb(245,245,245);
+  min-height: 450px;
+}
+.thumbnail {
+  background-color: rgba(200,230,240,.8);
+}
+.title {
+  text-align: center;
+  font-size: 200%;
+  background-color: rgba(120,120,120,0.7);
+}
