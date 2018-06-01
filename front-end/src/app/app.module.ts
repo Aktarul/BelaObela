@@ -10,11 +10,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { ValidateService} from "./services/validate.service";
@@ -30,9 +27,7 @@ import { HttpClient } from '@angular/common/http';
 import { CartComponent } from './components/cart/cart.component';
 import {AdminGaurd} from "./gaurds/admin.gaurd";
 import { DetailsComponent } from './components/details/details.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
 import { EditproductComponent } from './components/editproduct/editproduct.component';
-import { StripeService} from "./common/stripe.service";
 import { EditprofileComponent } from './components/editprofile/editprofile.component';
 import { AddressComponent } from './components/address/address.component';
 import {MatButtonModule, MatCheckboxModule, MatInputModule} from "@angular/material"
@@ -44,28 +39,28 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AutocompleteFilterExampleComponent } from './components/autocomplete-filter-example/autocomplete-filter-example.component';
 import {FooterComponent} from "./components/footer/footer.component";
 import {NavigationComponent} from "./components/navigation/navigation.component";
+import { AboutContactComponent } from './components/about-contact/about-contact.component';
+import { LoginRegisterComponent } from './components/login-register/login-register.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
     ProfileComponent,
-    RegisterComponent,
-    LoginComponent,
     DashboardComponent,
     ProductComponent,
     PhotoUploadComponent,
     CartComponent,
     DetailsComponent,
-    CheckoutComponent,
     EditproductComponent,
     EditprofileComponent,
     AddressComponent,
     AutocompleteFilterExampleComponent,
     FooterComponent,
-    NavigationComponent
+    NavigationComponent,
+    AboutContactComponent,
+    LoginRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -90,8 +85,7 @@ import {NavigationComponent} from "./components/navigation/navigation.component"
     AuthGaurd,
     ProductService,
     FileService,
-    AdminGaurd,
-    StripeService
+    AdminGaurd
   ],
   bootstrap: [AppComponent]
 })

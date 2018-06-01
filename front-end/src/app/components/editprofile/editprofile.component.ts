@@ -61,12 +61,12 @@ export class EditprofileComponent implements OnInit {
     this.authService.UpdateProfile(id,user)
       .subscribe( data =>{
         if(data.success) {
-          this._flashMessagesService.show('You are now Registered.', {cssClass: 'alert-success'});
+          this._flashMessagesService.show('Your profile has been updated successfully', {cssClass: 'alert-success'});
           this.router.navigate(['/profile']);
         }
         else {
-          this._flashMessagesService.show('Something went wrong', { cssClass: 'alert-danger'});
-          this.router.navigate(['/register']);
+          this._flashMessagesService.show('Something went wrong! Please try again.', { cssClass: 'alert-danger'});
+          this.router.navigate(['/loginregister']);
         }
       })
   }

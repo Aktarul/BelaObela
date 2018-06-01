@@ -53,7 +53,7 @@ export class CartComponent implements OnInit {
 
     }
     else
-      this.router.navigate(['/login']);
+      this.router.navigate(['/loginregister']);
   }
 
 
@@ -72,7 +72,7 @@ export class CartComponent implements OnInit {
 
     }
     else
-      this.router.navigate(['/login']);
+      this.router.navigate(['/loginregister']);
   }
 
   // reduceByOne(name){

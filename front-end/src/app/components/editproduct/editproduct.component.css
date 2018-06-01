@@ -111,3 +111,9 @@ span.input-group-addon i {
   font-size: 11px;
   text-align: center;
 }
+
+.btn {
+  max-width: 200px;
+  margin:auto;
+  display:block;
+}
