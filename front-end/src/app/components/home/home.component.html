@@ -3,29 +3,28 @@
   <div *ngFor="let product of products;let i = index" class="col-sm-6 col-md-4">
 
     <div  class="thumbnail">
-      <h3 style="float: left">{{product.code}}</h3>
 
+      <button *ngIf="isAdmin"  (click)="delFunc(product)" type="button" class=" btn1 btn-danger btn-sm">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
 
-      <h3 (click)="detailsView(product._id)" style="color: #26734d;text-align: center">{{product.name}}</h3>
+      <button *ngIf="isAdmin" (click)="editProduct(product._id)" type="button" class="btn btn2 btn-primary btn-sm">
+        <span class="glyphicon glyphicon-edit"></span>
+      </button>
 
       <img (click)="detailsView(product._id)" src="http://localhost:5500/{{product.picture[0]}}" alt="..." class="img-responsive">
       <div class="caption">
         <div class="clearfix">
-          <div class="price pull-left">{{ product.price }} ৳</div>
+          <h4 (click)="detailsView(product._id)" style="color: #26734d;text-align: center">{{product.name}}</h4>
 
-
-          <a (click)="cart(1,product._id,product)" class="btn btn-success pull-right" role="button">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          </a>
           <p class="description">{{ product.description }}</p>
 
-          <button (click)="delFunc(product)" *ngIf="isAdmin" style="float: right;margin-top: 18px;margin-right: 15px;" type="button" class="btn btn-danger btn-lg">
-            Trash<br>
-          </button>
+          <div class="price pull-left">{{ product.price }} ৳</div>
 
-          <button *ngIf="isAdmin" (click)="editProduct(product._id)" style="float: left;margin-top: 18px;margin-right: 15px;" type="button" class="btn btn-primary btn-lg">
-            Edit
-          </button>
+          <a (click)="cart(1,product._id,product)" class="btn btn-success pull-right btn-sm" role="button">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          </a>
+
         </div>
       </div>
 

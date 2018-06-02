@@ -1,6 +1,11 @@
 .background {
   /*background-image: url(home-bg2.jpg);*/
   background-color: rgb(245,245,245);
+  margin-left: 300px;
+}
+
+.row {
+  margin-right: 0px;
 }
 
 .thumbnail {
@@ -25,18 +30,24 @@
 }
 
 .thumbnail img {
-  height: 220px;
-  width: 400px;
+  height: 180px;
+  width: 300px;
 
 }
 
 .thumbnail .description {
   color: #003333;
-  font-size: 130%;
-  text-align: center;
 }
 
 .price {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.btn1 {
+  float: left;
+}
+
+.btn2 {
+  float: right;
 }
