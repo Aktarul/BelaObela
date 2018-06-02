@@ -36,7 +36,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { AutocompleteFilterExampleComponent } from './components/autocomplete-filter-example/autocomplete-filter-example.component';
 import {FooterComponent} from "./components/footer/footer.component";
 import {NavigationComponent} from "./components/navigation/navigation.component";
 import { AboutContactComponent } from './components/about-contact/about-contact.component';
@@ -56,7 +55,6 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     EditproductComponent,
     EditprofileComponent,
     AddressComponent,
-    AutocompleteFilterExampleComponent,
     FooterComponent,
     NavigationComponent,
     AboutContactComponent,

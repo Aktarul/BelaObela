@@ -11,7 +11,6 @@ import {AdminGaurd} from "./gaurds/admin.gaurd";
 import {DetailsComponent} from "./components/details/details.component";
 import {EditproductComponent} from "./components/editproduct/editproduct.component";
 import {EditprofileComponent} from "./components/editprofile/editprofile.component";
-import {AutocompleteFilterExampleComponent} from "./components/autocomplete-filter-example/autocomplete-filter-example.component";
 import { AboutContactComponent } from "./components/about-contact/about-contact.component";
 import {LoginRegisterComponent} from "./components/login-register/login-register.component";
 
@@ -27,9 +26,7 @@ const routes: Routes = [
   {path:'edit/:id', component: EditproductComponent, canActivate: [AdminGaurd]},
   {path:'editprofile/:id', component:EditprofileComponent, canActivate: [AuthGaurd]},
   {path: 'about', component: AboutContactComponent },
-  {path: 'loginregister', component: LoginRegisterComponent},
-  {path:'auto', component:AutocompleteFilterExampleComponent}
-
+  {path: 'loginregister', component: LoginRegisterComponent}
 
 ];
 
