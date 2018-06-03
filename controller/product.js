@@ -1,7 +1,7 @@
 var Product = require('../model/product'),
     Category = require('../model/category');
 
-    multer = require('multer');
+multer = require('multer');
 
 let store = multer.diskStorage({
     destination: function(req, file, cb){
@@ -18,24 +18,22 @@ var createProduct = (req, res, next) => {
 
     console.log('this is create product');
 
-
-
     var name = req.body.name,
         //picture = req.file.filename ,
         code = req.body.code,
         category = req.body.category,
         description = req.body.description,
         price = req.body.price;
-        avl = req.body.avl;
+    avl = req.body.avl;
 
 
 
-        console.log('In create code : '+code);
-        console.log('In create avl : '+avl);
+    console.log('In create code : '+code);
+    console.log('In create avl : '+avl);
 
     var myProduct = new Product({
         name: name,
-       // picture: picture,
+        // picture: picture,
         code:code,
         category: category,
         description: description,
@@ -53,21 +51,12 @@ var createProduct = (req, res, next) => {
             });
         }
         else {
-
-
-
             return res.status(200).json({
                 success: true,
                 data: product
             });
-
-
         }
     });
-
-
-
-
 };
 
 var getProduct = (req, res, next) => {
@@ -85,7 +74,7 @@ var getProduct = (req, res, next) => {
             });
         }
     });
-}
+};
 
 var getCategory = (req, res, next) => {
     Product.findById(req.params.id, (err, category) => {
@@ -102,7 +91,7 @@ var getCategory = (req, res, next) => {
             });
         }
     });
-}
+};
 
 var getAllProduct = (req, res, next) => {
     Product.find( (err, product) => {
@@ -119,12 +108,9 @@ var getAllProduct = (req, res, next) => {
             });
         }
     });
-}
+};
 
 var updateProduct = (req, res, next) => {
-
-
-
     upload(req, res, (err) => {
         if (err) {
             console.log('In save upload error: ' + err);
@@ -144,8 +130,6 @@ var updateProduct = (req, res, next) => {
                 price = req.body.price,
                 avl = req.body.avl;
 
-
-
             Product.findById(req.params.id, (err, product) => {
                 if(err){
                     return res.status(404).json({
@@ -154,8 +138,6 @@ var updateProduct = (req, res, next) => {
                     });
                 }
                 else {
-
-
                     console.log(product.avl);
                     console.log(product.code);
 
@@ -177,7 +159,6 @@ var updateProduct = (req, res, next) => {
                         }
                         else {
 
-
                             console.log('In save avl' + product.avl);
                             console.log('In save code '+product.code);
 
@@ -189,31 +170,41 @@ var updateProduct = (req, res, next) => {
                     });
                 }
             });
-
         }
     });
-
-
-
-}
+};
 
 
 var updateProduct2 = (req, res, next) => {
 
+    console.log('In Update 2');
+
+    var name = req.body.name,
+        code = req.body.code,
+        description = req.body.description,
+        avl = req.body.avl,
+        price = req.body.price;
 
 
+    Product.findById(req.params.id, (err, product) => {
+        if(err){
+            return res.status(404).json({
+                message: err,
+                success: false
+            });
+        }
+        else {
+            //product.picture.push(picture);
+            product.name = name || product.name;
+            //product.picture = picture || product.picture;
+            product.description = description || product.description;
+            product.price = price || product.price;
+            product.code = code || product.code;
+            product.avl = avl || product.avl;
 
+            console.log('Product avl '+product.avl);
 
-            console.log('In Update 2');
-
-            var name = req.body.name,
-                code = req.body.code,
-                description = req.body.description,
-                avl = req.body.avl;
-                price = req.body.price;
-
-
-            Product.findById(req.params.id, (err, product) => {
+            product.save((err, product) => {
                 if(err){
                     return res.status(404).json({
                         message: err,
@@ -221,49 +212,51 @@ var updateProduct2 = (req, res, next) => {
                     });
                 }
                 else {
-                    //product.picture.push(picture);
-                    product.name = name || product.name;
-                    //product.picture = picture || product.picture;
-                    product.description = description || product.description;
-                    product.price = price || product.price;
-                    product.code = code || product.code;
-                    product.avl = avl || product.avl;
-
-                    console.log('Product avl '+product.avl);
-
-                    product.save((err, product) => {
-                        if(err){
-                            return res.status(404).json({
-                                message: err,
-                                success: false
-                            });
-                        }
-                        else {
-                            return res.status(200).json({
-                                success: true,
-                                data: product
-                            });
-                        }
+                    return res.status(200).json({
+                        success: true,
+                        data: product
                     });
                 }
             });
-
-
-
-
-
-}
+        }
+    });
+};
 
 
 var deleteProduct = (req, res, next) => {
+
+    // Product.findById(req.params.id, 'Product', (err, Picture) => {
+    //     if(err) {
+    //         console.log(err);
+    //     }
+    //     Product.
+    //     fs.unlink("public/"+picture[0]+".jpg", (err) => {
+    //         if(err) {
+    //             console.log(err);
+    //         } else {
+    //             console.log("Deleted the file");
+    //         }
+    //     });
+    // });
+
+    // Product.findById(req.params.id, (err, product) => {
+    //     if(err){
+    //         return res.status(404).json({
+    //             message: err,
+    //             success: false
+    //         });
+    //     }
+    //     else {
+    //
+    //         console.log(JSON.stringify(product.picture[0]) + "hello World");
+    //     }
+    // });
 
     console.log('In delete');
 
     Product.findByIdAndRemove(req.params.id, (err) => {
         if(err){
-
             console.log('In delete err: ' +err);
-
 
             return res.status(404).json({
                 message: err,
@@ -277,7 +270,7 @@ var deleteProduct = (req, res, next) => {
             });
         }
     });
-}
+};
 
 module.exports = {
     createProduct,
@@ -287,4 +280,4 @@ module.exports = {
     deleteProduct,
     getCategory,
     updateProduct2
-}
+};

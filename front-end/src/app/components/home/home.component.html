@@ -1,34 +1,53 @@
+<div class="sidenav">
+  <a href="index.html">Home<i class="right pull-right"></i></a>
+  <a href="views/Skills_Academic.html">Academic info and Skills</a>
+  <a href="views/Photos.html">Photos</a>
+  <a href="views/About.html">About Me</a>
+  <a href="index.html">Home</a>
+  <a href="views/Skills_Academic.html">Academic info and Skills</a>
+  <a href="views/Photos.html">Photos</a>
+  <a href="views/About.html">About Me</a>
+  <a href="index.html">Home</a>
+  <a href="views/Skills_Academic.html">Academic info and Skills</a>
+  <a href="views/Photos.html">Photos</a>
+  <a href="views/About.html">About Me</a>
+  <a href="index.html">Home</a>
+  <a href="views/Skills_Academic.html">Academic info and Skills</a>
+  <a href="views/Photos.html">Photos</a>
+  <a href="views/About.html">About Me</a>
+</div>
+
 <div class="background">
-<div *ngIf="products" class="row">   <!--  col-xs-6 col-sm-3-->
-  <div *ngFor="let product of products;let i = index" class="col-sm-6 col-md-4 col-lg-3">
+  <div *ngIf="products" class="row">   <!--  col-xs-6 col-sm-3-->
+    <div *ngFor="let product of products;let i = index" class="col-sm-6 col-md-4 col-lg-3">
 
-    <div  class="thumbnail card">
+      <div  class="thumbnail card">
 
-      <button *ngIf="isAdmin"  (click)="delFunc(product)" type="button" class=" btn1 btn-danger btn-sm">
-        <span class="glyphicon glyphicon-trash"></span>
-      </button>
+        <button *ngIf="isAdmin"  (click)="delFunc(product)" type="button" class=" btn1 btn-danger btn-sm">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
 
-      <button *ngIf="isAdmin" (click)="editProduct(product._id)" type="button" class="btn btn2 btn-primary btn-sm">
-        <span class="glyphicon glyphicon-edit"></span>
-      </button>
+        <button *ngIf="isAdmin" (click)="editProduct(product._id)" type="button" class="btn btn2 btn-primary btn-sm">
+          <span class="glyphicon glyphicon-edit"></span>
+        </button>
 
-      <img (click)="detailsView(product._id)" src="http://localhost:5500/{{product.picture[0]}}" alt="..." class="link img-responsive">
-      <div class="caption">
-        <div class="clearfix">
-          <h4 class="name link showOne" [title]= product.name (click)="detailsView(product._id)">{{product.name}}</h4>
+        <img (click)="detailsView(product._id)" src="http://localhost:5500/{{product.picture[0]}}" alt="..." class="link img-responsive">
+        <div class="caption">
+          <div class="clearfix">
+            <h4 class="name link showOne" [title]= product.name (click)="detailsView(product._id)">{{product.name}}</h4>
 
-          <p class="description showTwo" [title]= product.description >{{ product.description }}</p>
+            <p class="description showTwo" [title]= product.description >{{ product.description }}</p>
 
-          <div class="price pull-left">{{ product.price }} ৳</div>
+            <div class="price pull-left">{{ product.price }} ৳</div>
 
-          <a (click)="cart(1,product._id,product)" class="btn btn-success pull-right btn-sm" role="button">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          </a>
+            <a (click)="cart(1,product._id,product)" class="btn btn-success pull-right btn-sm" role="button">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </a>
 
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
-</div>
 </div>
