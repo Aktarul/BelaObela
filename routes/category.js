@@ -8,6 +8,7 @@ router.patch('/:id', categoryController.updatecategory);
 router.get('/:id', categoryController.getCategory);
 router.get('/', categoryController.getAllCategory);
 //router.patch('/:id', productController.updateProduct);
-router.delete('/:id', authConttoller.userAuthenticate, categoryController.deletecategory);
+// router.delete('/:id', authConttoller.userAuthenticate, categoryController.deletecategory);
+router.delete('/:id', categoryController.deletecategory);
 
 module.exports = router;

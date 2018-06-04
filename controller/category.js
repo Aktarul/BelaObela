@@ -116,8 +116,10 @@ var updatecategory = (req, res, next) => {
 }
 
 var deletecategory = (req, res, next) => {
+    console.log('In category delete controller');
     Category.findByIdAndRemove(req.params.id, (err) => {
         if(err){
+            console.log('In error ',err);
             return res.status(404).json({
                 message: err,
                 success: false
@@ -125,7 +127,7 @@ var deletecategory = (req, res, next) => {
         }
         else {
             return res.status(200).json({
-                message: "Product deleted",
+                message: "category deleted",
                 success: true
             });
         }

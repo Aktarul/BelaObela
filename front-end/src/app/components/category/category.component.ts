@@ -20,8 +20,18 @@ export class CategoryComponent implements OnInit {
       });
   }
 
+
   deleteCategory(category) {
-    // this.cate
+    // console.log(category._id);
+
+    this.Category.splice(this.Category.indexOf(category), 1);
+    this.catService.deleteCategory(category._id).subscribe(res=>{
+      console.log(res);
+    });
+  }
+
+  addCategory(category) {
+
   }
 
 }
