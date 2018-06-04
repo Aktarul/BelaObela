@@ -55,12 +55,17 @@ export class CategoryComponent implements OnInit {
       .subscribe(res => {
         if(res.success) {
           this._flashMessagesService.show('Category added', { cssClass: 'alert-success'});
-          this.router.navigate(['/product']);
+          this.redirectTo('category');
         }
         else {
           this._flashMessagesService.show('Something is worng! Please try again!', { cssClass: 'alert-danger'});
           this.router.navigate(['/category']);
         }
       });
+  }
+
+  redirectTo(uri:string){           // used for redirect
+    this.router.navigateByUrl('/address', {skipLocationChange: true}).then(()=>
+      this.router.navigate([uri]));
   }
 }
