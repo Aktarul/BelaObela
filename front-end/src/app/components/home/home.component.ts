@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../services/product.service";
 import {Router} from "@angular/router";
+import {CategoryService} from "../../services/category.service";
 
 @Component({
   selector: 'app-home',
@@ -10,11 +11,13 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit {
 
   products : any = [];
-  isAdmin:any;
+  isAdmin: any;
+  Category: any;
 
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private catService: CategoryService
   ) {
     this.products = [];
     if(localStorage.getItem('isAdmin')=="true")
@@ -27,7 +30,12 @@ export class HomeComponent implements OnInit {
       .subscribe( response =>{
         this.products = response.data;
         // console.log(this.products);
-      })
+      });
+    this.catService.getCategory()
+      .subscribe(res => {
+        // console.log(res);
+        this.Category = res.data;
+      });
   }
 
   cart(cnt,productId,product){
@@ -46,5 +54,9 @@ export class HomeComponent implements OnInit {
     this.products.splice(this.products.indexOf(prod), 1);
     this.productService.deleteProduct(prod._id).subscribe(respnse=>{
     });
+  }
+
+  catSelect(category) {
+    console.log('At category select');
   }
 }
