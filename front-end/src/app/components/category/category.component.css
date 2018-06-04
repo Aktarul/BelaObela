@@ -8,3 +8,9 @@
   background-color: rgba(120,120,120,0.3);
   color: black;
 }
+
+.sizeControl {
+  padding-top: 5%;
+  max-width: 60%;
+  margin-left: 15%;
+}

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Headers, Http} from "@angular/http";
 import 'rxjs/add/operator/map';
+import { HttpClientModule} from "@angular/common/http";
+import { tokenNotExpired } from "angular2-jwt";
 
 @Injectable()
 export class CategoryService {
@@ -35,6 +37,16 @@ export class CategoryService {
     return this.http.delete(`http://localhost:5500/category/${id}`,{headers:headers})
       .map( res => res.json());
 
+  }
+
+  addCategory(data) {
+    // console.log(category);
+
+    let headers = new Headers();
+    headers.append('Content-type','application/json');
+
+    return this.http.post('http://localhost:5500/category',data,{headers: headers})
+      .map(res => res.json());
   }
 
   loadToken(){
