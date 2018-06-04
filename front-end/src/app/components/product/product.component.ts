@@ -50,7 +50,7 @@ export class ProductComponent implements OnInit {
     this.productService.registerProduct(product).subscribe( response=>{
       if(response.success) {
         // console.log(response.data._id);
-        let id = response.data._id
+        let id = response.data._id;
         this.flashMessage.show('Successfully created Product',{cssClass:'alert-success'});
         this.router.navigate([`/photo/${id}`]);
       }

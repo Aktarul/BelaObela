@@ -75,6 +75,13 @@ ol, ul {
   /*background-position: left center;*/
 }
 
+#main-menu > li.plus {
+  background-image: url(./images/plus-gray.png);
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
 .arrow-down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -110,6 +117,7 @@ ul.sub-menu {
   width: 300px;
   z-index: 9999;
 }
+
 
 ul.sub-menu ul.sub-menu {
   margin-top: -1px;

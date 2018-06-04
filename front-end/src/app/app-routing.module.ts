@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'editprofile/:id', component:EditprofileComponent, canActivate: [AuthGaurd]},
   {path: 'about', component: AboutContactComponent },
   {path: 'loginregister', component: LoginRegisterComponent},
-  {path: 'category', component: CategoryComponent},
+  {path: 'category', component: CategoryComponent, canActivate: [AdminGaurd]},
   {path: 'address', component: AddressComponent}
 
 ];

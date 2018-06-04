@@ -27,18 +27,25 @@
                 <!--</ul>-->
               <!--</li>-->
             </ul>
+          </li>
 
           <li *ngIf="!authService.isLoggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >
             <a [routerLink]="['/loginregister']">Login/Register</a>
           </li>
 
-          <li *ngIf="authService.isAdmin()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >
-            <a [routerLink]="['/product']"> Add Product</a>
+
+          <li  *ngIf="authService.isAdmin()" class="parent plus">
+            <a>Add</a>
+            <ul class="sub-menu" style="width: 200px;">
+              <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >
+                <a [routerLink]="['/product']"> Add Product</a>
+              </li>
+              <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >
+              <a [routerLink]="['/category']"> Add Category</a>
+            </li>
+            </ul>
           </li>
 
-          <li *ngIf="authService.isAdmin()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >
-            <a [routerLink]="['/category']"> Add Category</a>
-          </li>
 
           <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >
             <a [routerLink]="['/cart']"><i class="glyphicon glyphicon-shopping-cart"></i>
