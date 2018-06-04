@@ -1,0 +1,10 @@
+.new {
+  min-height: 400px;
+}
+
+.catHeader {
+  text-align: center;
+  font-size: 200%;
+  background-color: rgba(120,120,120,0.3);
+  color: black;
+}

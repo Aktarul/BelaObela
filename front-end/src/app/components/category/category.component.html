@@ -1,0 +1,28 @@
+<div class="panel panel-primary new">
+  <div class="catHeader">Category</div>
+  <div class="panel-body">
+
+    <table  class="table">
+      <thead>
+      <tr>
+        <th style="text-align: center">Name</th>
+        <th style="text-align: center">Action</th>
+
+      </tr>
+      </thead>
+
+
+      <tbody *ngFor="let cat of Category;let i = index">
+      <tr>
+        <td style="text-align: center; font-size: 130%">{{cat.category}}</td>
+        <td style="text-align: center"><a (click)="deleteCategory(cat)" class="btn btn-danger a-btn-slide-text">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          <span><strong>Delete</strong></span>
+        </a></td>
+      </tr>
+      </tbody>
+
+
+    </table>
+  </div>
+</div>
