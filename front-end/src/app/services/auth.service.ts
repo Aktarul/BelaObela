@@ -99,4 +99,33 @@ export class AuthService {
   loggedIn(){
     return tokenNotExpired('id_token');
   }
+
+  isLoggedIn () {
+    try {
+      const token = localStorage.getItem('id_token');
+      this.authToken = token;
+    } catch (e) {
+      return false;
+    }
+
+    if (this.authToken) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isAdmin () {
+    let isAdmin  = false;
+    try {
+      isAdmin = JSON.parse(localStorage.getItem('isAdmin'));
+    } catch (e) {
+      return false;
+    }
+    if (isAdmin) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

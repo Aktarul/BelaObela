@@ -2,6 +2,7 @@ var Product = require('../model/product'),
     Category = require('../model/category');
 
 multer = require('multer');
+var fs = require('fs');
 
 let store = multer.diskStorage({
     destination: function(req, file, cb){
@@ -225,38 +226,11 @@ var updateProduct2 = (req, res, next) => {
 
 var deleteProduct = (req, res, next) => {
 
-    // Product.findById(req.params.id, 'Product', (err, Picture) => {
-    //     if(err) {
-    //         console.log(err);
-    //     }
-    //     Product.
-    //     fs.unlink("public/"+picture[0]+".jpg", (err) => {
-    //         if(err) {
-    //             console.log(err);
-    //         } else {
-    //             console.log("Deleted the file");
-    //         }
-    //     });
-    // });
-
-    // Product.findById(req.params.id, (err, product) => {
-    //     if(err){
-    //         return res.status(404).json({
-    //             message: err,
-    //             success: false
-    //         });
-    //     }
-    //     else {
-    //
-    //         console.log(JSON.stringify(product.picture[0]) + "hello World");
-    //     }
-    // });
-
     console.log('In delete');
 
-    Product.findByIdAndRemove(req.params.id, (err) => {
+    Product.findByIdAndRemove(req.params.id, (err, product) => {
         if(err){
-            console.log('In delete err: ' +err);
+            // console.log('In delete err: ' + err);
 
             return res.status(404).json({
                 message: err,
@@ -264,10 +238,24 @@ var deleteProduct = (req, res, next) => {
             });
         }
         else {
-            return res.status(200).json({
-                message: "Product deleted",
-                success: true
-            });
+            //console.log(product);
+            let paths = product.picture;
+            for ( let index = 0; index<paths.length; index++) {
+                let path = paths[index];
+                fs.unlink("./public/" + path, (err) => {
+                    if (err) {
+                        console.log("failed to delete local image:"+ err);
+                    } else {
+                        console.log('successfully deleted local image');
+                        if (index == paths.length - 1) {
+                            return res.status(200).json({
+                                message: "Product deleted",
+                                success: true
+                            });
+                        }
+                    }
+                });
+            }
         }
     });
 };

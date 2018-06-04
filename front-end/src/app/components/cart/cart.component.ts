@@ -40,7 +40,7 @@ export class CartComponent implements OnInit {
 
   continueShopping(){
     if(this.authService.loggedIn()) {
-      // this.router.navigate(['/checkout'])
+      this.router.navigate(['/address'])
       let User = {
         wishList:this.arrObj
       }
@@ -59,7 +59,7 @@ export class CartComponent implements OnInit {
 
   buyList(){
     if(this.authService.loggedIn()) {
-      // this.router.navigate(['/checkout'])
+      this.router.navigate(['/address'])
       let User = {
         wishList:this.arrObj
       }

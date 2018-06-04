@@ -13,6 +13,8 @@ import {EditproductComponent} from "./components/editproduct/editproduct.compone
 import {EditprofileComponent} from "./components/editprofile/editprofile.component";
 import { AboutContactComponent } from "./components/about-contact/about-contact.component";
 import {LoginRegisterComponent} from "./components/login-register/login-register.component";
+import {CategoryComponent} from "./components/category/category.component";
+import {AddressComponent} from "./components/address/address.component";
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -26,7 +28,9 @@ const routes: Routes = [
   {path:'edit/:id', component: EditproductComponent, canActivate: [AdminGaurd]},
   {path:'editprofile/:id', component:EditprofileComponent, canActivate: [AuthGaurd]},
   {path: 'about', component: AboutContactComponent },
-  {path: 'loginregister', component: LoginRegisterComponent}
+  {path: 'loginregister', component: LoginRegisterComponent},
+  {path: 'category', component: CategoryComponent},
+  {path: 'address', component: AddressComponent}
 
 ];
 

@@ -40,6 +40,8 @@ import {FooterComponent} from "./components/footer/footer.component";
 import {NavigationComponent} from "./components/navigation/navigation.component";
 import { AboutContactComponent } from './components/about-contact/about-contact.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
+import { CategoryComponent } from './components/category/category.component';
+import {CategoryService} from "./services/category.service";
 
 
 @NgModule({
@@ -58,7 +60,8 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     FooterComponent,
     NavigationComponent,
     AboutContactComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,8 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     AuthGaurd,
     ProductService,
     FileService,
-    AdminGaurd
+    AdminGaurd,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

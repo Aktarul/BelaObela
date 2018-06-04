@@ -9,7 +9,11 @@ export class AddressComponent implements OnInit {
 
   constructor() { }
 
+
+
   ngOnInit() {
+
+    console.log(localStorage.getItem(''))
   }
 
 }
