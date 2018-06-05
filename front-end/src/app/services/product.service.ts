@@ -42,6 +42,14 @@ export class ProductService {
       .map(res => res.json())
   }
 
+  getCategoryProduct(id){
+
+    let headers = new Headers();
+    headers.append('Content-type','application/json');
+
+    return this.http.get(`http://localhost:5500/product/search/${id}`,{headers: headers})
+      .map(res => res.json())
+  }
 
   deleteProduct(id){
 

@@ -58,5 +58,9 @@ export class HomeComponent implements OnInit {
 
   catSelect(category) {
     console.log('At category select');
+    this.productService.getCategoryProduct(category)
+      .subscribe(res => {
+        console.log(res);
+      });
   }
 }

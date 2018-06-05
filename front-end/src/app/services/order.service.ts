@@ -16,4 +16,13 @@ export class OrderService {
       .map(res => res.json());
   }
 
+
+  getOrder() {
+    let headers = new Headers();
+    headers.append('Content-type','application/json');
+
+    return this.http.get('http://localhost:5500/order',{headers: headers})
+      .map(res => res.json());
+  }
+
 }

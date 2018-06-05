@@ -1,7 +1,7 @@
 <div class="sidenav">
   <h3 style="text-align: center" class="page-header">Categories</h3>
   <div  *ngFor="let cat of Category; let i = index">
-    <a class="link" (click)="catSelect(cat)">{{ cat.category }}<i class="right pull-right"></i></a>
+    <a class="link" (click)="catSelect(cat.category)">{{ cat.category }}<i class="right pull-right"></i></a>
   </div>
 </div>
 

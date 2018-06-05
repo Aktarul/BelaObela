@@ -43,12 +43,14 @@ export class ProductComponent implements OnInit {
       description: this.description,
       price: this.price,
       avl: this.avl
-    }
+    };
 
-    console.log(this.category);
+    // console.log(this.category);
 
     this.productService.registerProduct(product).subscribe( response=>{
       if(response.success) {
+        console.log(product.category);
+
         // console.log(response.data._id);
         let id = response.data._id;
         this.flashMessage.show('Successfully created Product',{cssClass:'alert-success'});

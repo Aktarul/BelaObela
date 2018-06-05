@@ -3,6 +3,7 @@ var router = express.Router();
 var productController = require('../controller/product');
 var authConttoller = require('../controller/auth');
 
+router.get('/search/:cat',productController.getCatProduct);
 router.post('/', productController.createProduct);
 router.post('/:id', productController.updateProduct);
 router.patch('/:id', productController.updateProduct2);

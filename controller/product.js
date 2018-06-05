@@ -77,6 +77,33 @@ var getProduct = (req, res, next) => {
     });
 };
 
+var getCatProduct = (req, res, next) => {
+
+    let cat = req.params.cat;
+
+    if(cat){
+        Product.find({category: new RegExp(cat,'i')}, (err, product) => {
+            if(err) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'can not find category'
+                });
+            }else {
+                return res.status(201).json({
+                    success: true,
+                    data: product
+                });
+            }
+        })
+    } else {
+        return res.status(200).json({
+            success: false
+        });
+    }
+
+
+};
+
 var getCategory = (req, res, next) => {
     Product.findById(req.params.id, (err, category) => {
         if(err){
@@ -267,5 +294,6 @@ module.exports = {
     updateProduct,
     deleteProduct,
     getCategory,
-    updateProduct2
+    updateProduct2,
+    getCatProduct
 };
