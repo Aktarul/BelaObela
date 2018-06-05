@@ -46,7 +46,7 @@ export class NavigationComponent implements OnInit {
   }
 
   catSelect(category) {
-      console.log('At category select');
+      console.log('At category select' + category);
   }
 
 }

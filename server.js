@@ -40,10 +40,13 @@ app.use('/auth', authRoute);
 var categoryRouter = require('./routes/category');
 app.use('/category',categoryRouter);
 
+var orderRouter = require('./routes/order');
+app.use('/order',orderRouter);
+
 app.get('/',(req,res)=>{
     res.send('Foobar');
-})
+});
 
 app.listen(PORT,()=>{
     console.log('Server has been started at port: '+PORT);
-})
+});

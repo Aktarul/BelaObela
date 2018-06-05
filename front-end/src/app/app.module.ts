@@ -42,6 +42,8 @@ import { AboutContactComponent } from './components/about-contact/about-contact.
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { CategoryComponent } from './components/category/category.component';
 import {CategoryService} from "./services/category.service";
+import { ConfirmComponent } from './components/confirm/confirm.component';
+import {OrderService} from "./services/order.service";
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import {CategoryService} from "./services/category.service";
     NavigationComponent,
     AboutContactComponent,
     LoginRegisterComponent,
-    CategoryComponent
+    CategoryComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import {CategoryService} from "./services/category.service";
     ProductService,
     FileService,
     AdminGaurd,
-    CategoryService
+    CategoryService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

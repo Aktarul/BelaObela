@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras} from "@angular/router";
 
 @Component({
   selector: 'app-address',
@@ -7,13 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddressComponent implements OnInit {
 
-  constructor() { }
+  address: String;
+  mobile_no: String;
+
+  constructor(
+    private router: Router
+  ) { }
 
 
 
   ngOnInit() {
 
     console.log(localStorage.getItem(''))
+  }
+
+  order() {
+
+
+    let navigationExtras : NavigationExtras = {
+      queryParams: {
+        "address": this.address,
+        "mobile_no": this.mobile_no
+      }
+    }
+    this.router.navigate([`/confirm`], navigationExtras);
+
   }
 
 }

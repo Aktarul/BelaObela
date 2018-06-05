@@ -24,8 +24,8 @@ var createProduct = (req, res, next) => {
         code = req.body.code,
         category = req.body.category,
         description = req.body.description,
-        price = req.body.price;
-    avl = req.body.avl;
+        price = req.body.price,
+        avl = req.body.avl;
 
 
 

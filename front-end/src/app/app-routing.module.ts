@@ -15,6 +15,7 @@ import { AboutContactComponent } from "./components/about-contact/about-contact.
 import {LoginRegisterComponent} from "./components/login-register/login-register.component";
 import {CategoryComponent} from "./components/category/category.component";
 import {AddressComponent} from "./components/address/address.component";
+import {ConfirmComponent} from "./components/confirm/confirm.component";
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:'editprofile/:id', component:EditprofileComponent, canActivate: [AuthGaurd]},
   {path: 'about', component: AboutContactComponent },
   {path: 'loginregister', component: LoginRegisterComponent},
+  {path: 'confirm', component: ConfirmComponent},
   {path: 'category', component: CategoryComponent, canActivate: [AdminGaurd]},
   {path: 'address', component: AddressComponent}
 

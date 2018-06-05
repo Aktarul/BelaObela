@@ -83,7 +83,7 @@ var getAllUser = (req, res, next) => {
             });
         }
     });
-}
+};
 
 var updateUser = (req, res, next) => {
 
@@ -136,7 +136,7 @@ var updateUser = (req, res, next) => {
             });
         }
     });
-}
+};
 
 
 var deleteUser = (req, res, next) => {
@@ -163,7 +163,7 @@ var deleteUser = (req, res, next) => {
             });
         }
     });
-}
+};
 
 module.exports = {
     createUser,
@@ -171,4 +171,4 @@ module.exports = {
     getAllUser,
     getUser,
     updateUser
-}
+};

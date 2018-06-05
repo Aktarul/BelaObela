@@ -10,7 +10,7 @@ var createCategory = (req, res, next) => {
 
     var
         //picture = req.file.filename ,
-        category = req.body.category
+        category = req.body.category;
 
 
 
