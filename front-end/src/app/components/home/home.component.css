@@ -8,6 +8,12 @@
   padding: 0px;
 }
 
+@media screen and (max-width: 650px){
+  .row {
+    margin-left: 0%;
+  }
+}
+
 .thumbnail {
   /*background-color: rgba(240,230,160,0.35);*/
   background-color: white;
@@ -25,16 +31,15 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.container {
-  padding: 2px 12px;
-  overflow-x: hidden;
+/*.container {*/
+  /*padding: 2px 12px;*/
+  /*overflow-x: hidden;*/
 
-}
+/*}*/
 
 .thumbnail img {
   height: 180px;
   width: 280px;
-
 }
 
 .thumbnail .description {
@@ -86,13 +91,15 @@
 
 /*side bar*/
 .sidenav {
+  /*height: ;*/
   width: 20%;
-  min-height: available;
+  /*min-height: available;*/
   position: absolute;
+  /*position: fixed;*/
   /*z-index: 1;*/
   /*top: 5px;*/
   /*left: 5px;*/
-  background-color: rgb(255,255,255);
+  /*background-color: rgb(255,255,255);*/
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -108,9 +115,21 @@
 }
 
 .sidenav a:hover {
-  background-color: rgb(245,250,245);
+  background-color: rgb(255,255,255);
   box-shadow: 0px 4px 8px 4px rgba(0,0,0,0.2);
 }
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+@media screen and (max-width: 650px){
+  .sidenav {
+    display: none;
+  }
+}
+
 
 /*right arrow*/
 i {
@@ -131,3 +150,8 @@ i:hover {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
+
+@media (min-width: 1200px) {
+  .my-custom-container{
+    width:1300px;
+  }}

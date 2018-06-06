@@ -36,6 +36,10 @@ export class HomeComponent implements OnInit {
         // console.log(res);
         this.Category = res.data;
       });
+
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    console.log('width '+ w + " " + h);
   }
 
   cart(cnt,productId,product){
@@ -62,5 +66,6 @@ export class HomeComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
       });
+
   }
 }
