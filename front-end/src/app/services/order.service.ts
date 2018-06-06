@@ -25,4 +25,21 @@ export class OrderService {
       .map(res => res.json());
   }
 
+  deleteOrder(id) {
+    let headers = new Headers();
+
+    // this.loadToken();
+
+    console.log('In delete order');
+
+    console.log('order ID: '+ id);
+
+    // headers.append('authorization',this.authToken);
+    headers.append('Content-Type','application/json');
+
+    return this.http.delete(`http://localhost:5500/order/${id}`,{headers:headers})
+      .map( res => res.json());
+
+  }
+
 }

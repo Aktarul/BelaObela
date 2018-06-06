@@ -5,12 +5,13 @@
     <table  class="table">
       <thead>
       <tr>
-        <th style="text-align: center">UserName</th>
-        <th style="text-align: center">ProductName</th>
+        <th style="text-align: center">Name</th>
+        <th style="text-align: center">Products Name</th>
         <th >Quantity</th>
         <th style="text-align: center">User Email</th>
         <th style="text-align: center">Address</th>
         <th >Mobile no</th>
+        <th >Action</th>
       </tr>
       </thead>
 
@@ -23,6 +24,9 @@
         <td style="text-align: center">{{obj.email}}</td>
         <td style="text-align: center">{{obj.address}}</td>
         <td style="text-align: center">{{obj.mobile_no}}</td>
+        <td style="text-align: center"><a (click)="deleteOrder(obj)" class="btn btn-sm btn-danger a-btn-slide-text">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </a></td>
       </tr>
 
       </tbody>

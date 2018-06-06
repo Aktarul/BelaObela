@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../services/auth.service";
-import {ProductService} from "../../services/product.service";
-import { ActivatedRoute } from "@angular/router";
 import { OrderService } from "../../services/order.service";
 
 @Component({
@@ -25,5 +22,16 @@ export class DashboardComponent implements OnInit {
         this.Order = res.data;
       });
 
+  }
+
+  deleteOrder(order) {
+    // console.log(order._id);
+    this.orderService.deleteOrder(order._id)
+      .subscribe(res=>{
+        console.log(res);
+        if (res.success = true) {
+          this.Order.splice(this.Order.indexOf(order), 1);
+        }
+      });
   }
 }

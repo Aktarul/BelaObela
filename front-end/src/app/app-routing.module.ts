@@ -30,9 +30,9 @@ const routes: Routes = [
   {path:'editprofile/:id', component:EditprofileComponent, canActivate: [AuthGaurd]},
   {path: 'about', component: AboutContactComponent },
   {path: 'loginregister', component: LoginRegisterComponent},
-  {path: 'confirm', component: ConfirmComponent},
+  {path: 'confirm', component: ConfirmComponent, canActivate: [AuthGaurd] },
   {path: 'category', component: CategoryComponent, canActivate: [AdminGaurd]},
-  {path: 'address', component: AddressComponent}
+  {path: 'address', component: AddressComponent, canActivate: [AuthGaurd]}
 
 ];
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from "../../model/order";
-import { ActivatedRoute } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { OrderService } from "../../services/order.service";
+import { FlashMessagesService } from "angular2-flash-messages";
 
 @Component({
   selector: 'app-confirm',
@@ -19,7 +20,9 @@ export class ConfirmComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private _flashMessageService: FlashMessagesService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -58,7 +61,15 @@ export class ConfirmComponent implements OnInit {
 
     this.orderService.postOrder(this.order)
       .subscribe(res => {
-        console.log(res);
+        // console.log(res);
+        if(res.success) {
+          localStorage.cnt = 0;
+          localStorage.myProductCart = null;
+          this._flashMessageService.show('Order Confirmed', {cssClass: 'alert-success'});
+          this.router.navigate(['/']);
+        } else {
+          this._flashMessageService.show('Something went wrong! Can not confirm order!', {cssClass: 'alert-danger'});
+        }
       });
   }
 
