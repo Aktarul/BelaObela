@@ -9,6 +9,10 @@
 
           <li><a href="/">Home</a></li>
 
+          <li *ngIf="authService.isAdmin()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >
+            <a [routerLink]="['/dashboard']">Orders</a>
+          </li>
+
           <li class="parent">
             <a>Category</a>
             <span class="dropdown-caret"></span>
