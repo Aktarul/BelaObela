@@ -66,9 +66,9 @@
           <td></td>
           <td></td>
           <td>
-            <button (click)="continueShopping()" type="button" class="btn btn-success" >
+            <button [disabled]="cartCnt" (click)="continueShopping()" type="button" class="btn btn-success" >
               <strong>Order</strong> 1st step <span class="glyphicon glyphicon-play"></span>
-            </button>
+            </button> <i>Easy Steps</i>
           </td>
         </tr>
       </table>

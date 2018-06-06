@@ -1,9 +1,25 @@
+.background {
+  min-height: 400px;
+}
+
 .page-header {
   font-size: 150%;
   text-align: center;
+}
+
+.btn {
+  margin-left: 75%;
+}
+
+@media screen and (max-width: 700px){
+  .btn {
+    margin-left: 40%;
+  }
+
 }
 
 .address {
   max-width: 80%;
   margin-left: 10%;
 }
+

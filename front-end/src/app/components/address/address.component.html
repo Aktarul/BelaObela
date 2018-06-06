@@ -1,16 +1,18 @@
+<div class="background">
 <div class="main-center">
   <div class="form-group address">
-    <div class="page-header">Enter Your Address and Mobile no to confirm order</div>
+    <div class="page-header">Enter Your Address and Mobile number to order</div>
     <div class="form-group">
       <label>Address</label>
       <textarea [(ngModel)]="address" class="form-control" id="address" rows="4"></textarea>
-    </div>
+    </div><br>
     <div>
-      <label>Mobile No</label>
+      <label>Mobile No </label>
       <input [(ngModel)]="mobile_no" id="mobile" type="tel">
-    </div>
+    </div> <br>
     <button (click)="order()" type="button" class="btn btn-success" >
-      Order <span class="glyphicon glyphicon-play"></span>
+      <strong>Order</strong> final step <span class="glyphicon glyphicon-play"></span>
     </button>
   </div>
+</div>
 </div>
