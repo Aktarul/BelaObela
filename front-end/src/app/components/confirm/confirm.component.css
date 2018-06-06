@@ -1,0 +1,28 @@
+.background {
+  margin-bottom: 100px;
+  min-height: 300px;
+}
+
+.page-header {
+  font-size: 200%;
+  text-align: center;
+}
+
+.rcorners2 {
+  border-radius: 25px;
+  border: 2px solid green;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.btn {
+  margin-left: 75%;
+}
+
+@media screen and (max-width: 700px){
+  .btn {
+    margin-left: 40%;
+  }
+
+}

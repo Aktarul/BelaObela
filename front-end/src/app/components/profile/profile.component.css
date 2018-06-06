@@ -5,8 +5,7 @@
 .thumbnail {
   background-color: rgba(200,230,240,.8);
 }
-.title {
+.page-header{
   text-align: center;
   font-size: 200%;
-  background-color: rgba(120,120,120,0.7);
 }

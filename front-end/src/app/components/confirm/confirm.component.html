@@ -1,3 +1,14 @@
-<p>
-  <button (click)="confirm()">Are you sure</button>
-</p>
+<div class="background">
+  <div class="page-header">Order Information</div>
+  <div class="rcorners2">
+    <h4>Name: <b>{{ order.user_name }}</b></h4>
+    <h4>Mail: <b>{{ order.Email }}</b></h4>
+    <h4>Address: <b>{{order.address}}</b></h4>
+    <h4>Mobile: <b>{{order.mobile_no}}</b></h4>
+    <h4>Ordered products: <b>{{ product_name }}</b></h4>
+  </div><br>
+
+  <button (click)="confirm()" type="button" class="btn btn-success" >
+    <strong>Confirm</strong><span class="glyphicon glyphicon-play"></span>
+  </button>
+</div>

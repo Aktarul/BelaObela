@@ -32,8 +32,8 @@ export class ConfirmComponent implements OnInit {
 
     for(var i = 0 ; i < this.myProductArray.length; i++){
       // console.log(this.myProductArray[i].myProduct.name);
-      this.product_name = this.product_name + " " + this.myProductArray[i].myProduct.name;
-      this.quantity = this.quantity + " " + this.myProductArray[i].myProductCount;
+      this.product_name = this.product_name + " + " + this.myProductArray[i].myProduct.name;
+      this.quantity = this.quantity + " + " + this.myProductArray[i].myProductCount;
     }
 
     // console.log(this.product_name);
@@ -41,8 +41,8 @@ export class ConfirmComponent implements OnInit {
 
 
     this.user = JSON.parse(localStorage.getItem('user'));
-    console.log('email is here:' + this.user.email);
-    this.order.user_name = this.user.username;
+    console.log('email is here:' + this.user.name);
+    this.order.user_name = this.user.name;
     this.order.Email = this.user.email;
 
 
