@@ -1,6 +1,6 @@
 .main-center{
   margin: 0 auto;
-  max-width: 650px;
+  max-width: 600px;
   height: 100%;
   background: rgba(51, 204, 255,0.6);
   color: #000;
@@ -9,10 +9,16 @@
 .main-center2{
   margin-right: 30px;
   margin-top: 60px;
-  max-width: 30%;
+  max-width: 350px;
   background: rgba(86, 102, 115, 0.5);
   color: #000;
   border-radius: 15px;
+}
+
+@media screen and (max-width: 990px) {
+  .main-center2 {
+    max-width: 600px;
+  }
 }
 
 .row:after {
@@ -30,6 +36,12 @@
   float: right;
   padding: 15px 25px;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 990px) {
+  .column2 {
+    float: left;
+  }
 }
 
 .bg{
