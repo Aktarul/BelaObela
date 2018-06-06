@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   products : any = [];
   isAdmin: any;
   Category: any;
+  catBool = false;
+  selectedCat: any;
 
   constructor(
     private productService: ProductService,
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit {
         // console.log(res);
         this.Category = res.data;
       });
+    console.log(this.catBool);
 
     var w = window.innerWidth;
     var h = window.innerHeight;
@@ -64,8 +67,11 @@ export class HomeComponent implements OnInit {
     console.log('At category select');
     this.productService.getCategoryProduct(category)
       .subscribe(res => {
-        console.log(res);
+        console.log(res.data);
+        this.products = res.data;
+        this.catBool = true;
+        this.selectedCat = category;
       });
-
+    console.log(this.catBool);
   }
 }

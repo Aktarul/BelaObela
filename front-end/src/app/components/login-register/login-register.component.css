@@ -35,7 +35,7 @@
 .bg{
   min-height: 445px;
   /*background:url(../component-images/signup.png);*/
-  background-color: rgb(245,245,245);
+  background-color: white;
   font-family: 'Oxygen', sans-serif;
   background-size: cover;
   padding: 5px 20px;
