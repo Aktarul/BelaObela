@@ -1,5 +1,6 @@
 .footer-distributed{
 	background-color: #292c2f;
+	/*background-color: rgb(245,245,245);*/
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
@@ -8,6 +9,17 @@
 
 	padding: 5px 5px;
 	margin-top: 0px;
+
+    /*position fixed*/
+  /*left: 100px;*/
+  /*bottom: 0;*/
+  /*position: fixed;*/
+}
+
+@media screen and (max-width: 900px){
+  .footer-distributed {
+    position: relative;
+  }
 }
 
 .footer-distributed .footer-left,
@@ -25,7 +37,7 @@
 
 .footer-distributed h3{
 	color:  #ffffff;
-	font: normal 50px 'Cookie', cursive;
+	font: normal 40px 'Cookie', cursive;
 	margin: 0;
 }
 

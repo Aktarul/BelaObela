@@ -165,78 +165,78 @@ ul.sub-menu > li > a.parent {
   display: block; /* show the submenu */
 }
 
-@media all and (max-width: 700px) {
+/*@media all and (max-width: 700px) {*/
 
-  #navigation {
-    position: static;
-    margin-top: 20px;
-  }
+  /*#navigation {*/
+    /*position: static;*/
+    /*margin-top: 20px;*/
+  /*}*/
 
-  #menu-toggle {
-    display: block;
-  }
+  /*#menu-toggle {*/
+    /*display: block;*/
+  /*}*/
 
-  #main-menu {
-    display: none;
-    float: none;
-  }
+  /*#main-menu {*/
+    /*display: none;*/
+    /*float: none;*/
+  /*}*/
 
-  #main-menu li {
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
+  /*#main-menu li {*/
+    /*display: block;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+  /*}*/
 
-  #main-menu > li {
-    margin-top: -1px;
-  }
+  /*#main-menu > li {*/
+    /*margin-top: -1px;*/
+  /*}*/
 
-  #main-menu > li:first-child {
-    margin-top: 0;
-  }
+  /*#main-menu > li:first-child {*/
+    /*margin-top: 0;*/
+  /*}*/
 
-  #main-menu > li > a {
-    background-color: #333;
-    border: 1px solid #444;
-    color: #bbb;
-    display: block;
-    font-size: 14px;
-    padding: 12px;
-    padding: 0;
-  }
+  /*#main-menu > li > a {*/
+    /*background-color: #333;*/
+    /*border: 1px solid #444;*/
+    /*color: #bbb;*/
+    /*display: block;*/
+    /*font-size: 14px;*/
+    /*padding: 12px;*/
+    /*padding: 0;*/
+  /*}*/
 
-  #main-menu li > a:hover {
-    background-color: #444;
-  }
+  /*#main-menu li > a:hover {*/
+    /*background-color: #444;*/
+  /*}*/
 
-  #main-menu > li.parent {
-    background: none;
-    padding: 0;
-  }
+  /*#main-menu > li.parent {*/
+    /*background: none;*/
+    /*padding: 0;*/
+  /*}*/
 
-  #main-menu > li:hover > a,
-  #main-menu > li.current-menu-item > a {
-    border: 1px solid #444;
-    color: #fff;
-  }
+  /*#main-menu > li:hover > a,*/
+  /*#main-menu > li.current-menu-item > a {*/
+    /*border: 1px solid #444;*/
+    /*color: #fff;*/
+  /*}*/
 
-  ul.sub-menu {
-    display: block;
-    margin-top: -1px;
-    margin-left: 20px;
-    position: static;
-    padding: 0;
-    width: inherit;
-  }
+  /*ul.sub-menu {*/
+    /*display: block;*/
+    /*margin-top: -1px;*/
+    /*margin-left: 20px;*/
+    /*position: static;*/
+    /*padding: 0;*/
+    /*width: inherit;*/
+  /*}*/
 
-  ul.sub-menu > li:first-child {
-    border-top: 1px solid #444 ;
-  }
+  /*ul.sub-menu > li:first-child {*/
+    /*border-top: 1px solid #444 ;*/
+  /*}*/
 
-  ul.sub-menu > li > a.parent {
-    background: #333;
-  }
-}
+  /*ul.sub-menu > li > a.parent {*/
+    /*background: #333;*/
+  /*}*/
+/*}*/
 
 .dropdown-caret {
   color: white;

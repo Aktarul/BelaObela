@@ -32,7 +32,7 @@ export class ProductComponent implements OnInit {
     this.productService.getCategory()
       .subscribe( response=>{
           this.Category = response.data;
-      })
+      });
   }
 
   onRegisterSubmit(){

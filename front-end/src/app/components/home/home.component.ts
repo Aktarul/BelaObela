@@ -11,8 +11,18 @@ import {CategoryService} from "../../services/category.service";
 export class HomeComponent implements OnInit {
 
   products : any = [];
+  topProducts: any = [];
+  bestSellProducts: any = [];
+  todayDealsProducts: any = [];
+  topSearch: any;
+  bestSearch: any;
+  todaySearch: any;
   isAdmin: any;
   Category: any;
+  catBool = false;
+  selectedCat: any;
+  statusBool = true;
+  allProductBool = false;
 
   constructor(
     private productService: ProductService,
@@ -56,12 +66,66 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  topProduct() {
+    this.topSearch = 'Top Product';
+    console.log('At top search = '+ this.topSearch);
+    this.productService.getTopProduct(this.topSearch)
+      .subscribe(res => {
+        console.log(res.data);
+        this.topProducts = res.data;
+      });
+  }
+
+  // seeMoreTopProducts() {
+  //   this.statusBool = false;
+  //   this.topSearch = 'Top Product';
+  //   console.log('At top search = '+ this.topSearch);
+  //   this.productService.getTopProduct(this.topSearch)
+  //     .subscribe(res => {
+  //       console.log(res.data);
+  //       this.topProducts = res.data;
+  //       this.products = res.data;
+  //     });
+  // }
+
+  bestSell() {
+    this.bestSearch = 'Best Sell';
+    this.productService.getTopProduct(this.bestSearch)
+      .subscribe(res => {
+        console.log(res.data);
+        this.bestSellProducts = res.data;
+      });
+  }
+
+  todayDeals() {
+    this.todaySearch = 'Today Deal';
+    this.productService.getTopProduct(this.todaySearch)
+      .subscribe(res => {
+        console.log(res.data);
+        this.todayDealsProducts = res.data;
+      });
+  }
+
+
+  getAllProducts() {
+    this.allProductBool = true;
+    this.productService.getProduct()
+      .subscribe( response =>{
+        this.products = response.data;
+        // console.log(this.products);
+      });
+  }
+
   catSelect(category) {
-    console.log('At category select');
+    // console.log('At category select');
     this.productService.getCategoryProduct(category)
       .subscribe(res => {
-        console.log(res);
+        // console.log(res.data);
+        this.products = res.data;
+        this.catBool = true;
+        this.allProductBool = true;
+        this.selectedCat = category;
       });
-
+    // console.log(this.catBool);
   }
 }
