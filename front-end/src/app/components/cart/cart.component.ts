@@ -10,12 +10,11 @@ import {Router} from "@angular/router";
 export class CartComponent implements OnInit {
 
   myProductArray : any [];
-
   sum : number = 0;
-
   arrObj:string[] = new Array(0);
-
   cnt2: any;
+  temp: any;
+  cartCnt: any;
 
   constructor(
     private authService: AuthService,
@@ -30,11 +29,19 @@ export class CartComponent implements OnInit {
     this.myProductArray = JSON.parse(localStorage.getItem('myProductCart'));
 
 
+    this.temp = localStorage.getItem('cnt');
+    if(this.temp == 0) {
+      this.cartCnt = true;
+      console.log(this.cartCnt);
+    } else {
+      this.cartCnt  = false;
+    }
+
+
     for(let i=0;i<this.myProductArray.length;i++) {
       this.sum = this.sum + parseInt(this.myProductArray[i].myProduct.price) * parseInt(this.myProductArray[i].myProductCount);
       this.arrObj.push(this.myProductArray[i].myProduct._id);
     }
-
     // console.log(this.arrObj);
   }
 
@@ -112,7 +119,7 @@ export class CartComponent implements OnInit {
         this.myProductArray[i].myProductCount = 0;
         localStorage.setItem('myProductCart',JSON.stringify(this.myProductArray));
 
-        console.log(localStorage.getItem('cnt'));
+        // console.log(localStorage.getItem('cnt'));
 
       }
     }

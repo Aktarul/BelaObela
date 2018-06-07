@@ -3,6 +3,7 @@ import {AuthService} from "../../services/auth.service";
 import {ValidateService} from "../../services/validate.service";
 import {FlashMessagesService} from "angular2-flash-messages";
 import {ActivatedRoute, Router} from "@angular/router";
+import { User} from "../../model/user";
 
 @Component({
   selector: 'app-editprofile',
@@ -17,7 +18,7 @@ export class EditprofileComponent implements OnInit {
   username: String;
   password: String;
 
-  user: any;
+  user = new User;
 
   constructor(
     private authService: AuthService,
@@ -31,9 +32,9 @@ export class EditprofileComponent implements OnInit {
   ngOnInit() {
 
     const id = this.route.snapshot.paramMap.get('id');
-    this.authService.getSiingleProfile(id).subscribe(response=>{
+    this.authService.getSiingleProfile(id).subscribe(response => {
       this.user = response.data;
-    })
+    });
   }
 
   onUpdate(user){
