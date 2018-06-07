@@ -13,6 +13,9 @@ export class EditproductComponent implements OnInit {
 
   product: Product;
   category: Category[];
+  status1 = 'Today Deal';
+  status2 = 'Top Product';
+  status3 = 'Best Sell';
 
   constructor(
     private productService: ProductService,

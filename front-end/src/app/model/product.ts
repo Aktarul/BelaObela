@@ -6,5 +6,6 @@ export class Product {
   picture: string;
   price: [string];
   category: string;
-  availability: string;
+  avl: string;
+  status: string;
 }

@@ -25,7 +25,8 @@ var createProduct = (req, res, next) => {
         category = req.body.category,
         description = req.body.description,
         price = req.body.price,
-        avl = req.body.avl;
+        avl = req.body.avl,
+        status = req.body.status;
 
 
 
@@ -39,7 +40,8 @@ var createProduct = (req, res, next) => {
         category: category,
         description: description,
         price: price,
-        avl: avl
+        avl: avl,
+        status: status
     });
     myProduct.save((err, product) => {
         console.log('In save');
@@ -115,7 +117,7 @@ var getTopProduct = (req, res, next) => {
             if(err) {
                 return res.status(400).json({
                     success: false,
-                    message: 'can not find top products'
+                    message: 'can not find this category products'
                 });
             }else {
                 return res.status(201).json({
@@ -183,7 +185,8 @@ var updateProduct = (req, res, next) => {
                 picture = req.file.filename ,
                 description = req.body.description,
                 price = req.body.price,
-                avl = req.body.avl;
+                avl = req.body.avl,
+                status = req.body.status;
 
             Product.findById(req.params.id, (err, product) => {
                 if(err){
@@ -203,6 +206,7 @@ var updateProduct = (req, res, next) => {
                     product.description =description || product.description;
                     product.price = price || product.price;
                     product.avl = avl || product.avl;
+                    product.status = status || product.status;
 
 
                     product.save((err, product) => {
@@ -238,7 +242,8 @@ var updateProduct2 = (req, res, next) => {
         code = req.body.code,
         description = req.body.description,
         avl = req.body.avl,
-        price = req.body.price;
+        price = req.body.price,
+        status = req.body.status;
 
 
     Product.findById(req.params.id, (err, product) => {
@@ -256,6 +261,7 @@ var updateProduct2 = (req, res, next) => {
             product.price = price || product.price;
             product.code = code || product.code;
             product.avl = avl || product.avl;
+            product.status = status || product.status;
 
             console.log('Product avl '+product.avl);
 
@@ -304,7 +310,8 @@ var deleteProduct = (req, res, next) => {
                         if (index == paths.length - 1) {
                             return res.status(200).json({
                                 message: "Product deleted",
-                                success: true
+                                success: true,
+                                data: product
                             });
                         }
                     }

@@ -18,6 +18,10 @@ export class ProductComponent implements OnInit {
   category: String;
   Category: object;
   avl: String;
+  status: String;
+  status1 = 'Today Deal';
+  status2 = 'Top Product';
+  status3 = 'Best Sell';
 
   constructor(
     private productService: ProductService,
@@ -42,18 +46,19 @@ export class ProductComponent implements OnInit {
       category: this.category,
       description: this.description,
       price: this.price,
-      avl: this.avl
+      avl: this.avl,
+      status: this.status
     };
 
     // console.log(this.category);
 
     this.productService.registerProduct(product).subscribe( response=>{
       if(response.success) {
-        console.log(product.category);
+        // console.log(product.category);
 
         // console.log(response.data._id);
         let id = response.data._id;
-        this.flashMessage.show('Successfully created Product',{cssClass:'alert-success'});
+        this.flashMessage.show('Successfully created Product. Now upload picture',{cssClass:'alert-success'});
         this.router.navigate([`/photo/${id}`]);
       }
       else {

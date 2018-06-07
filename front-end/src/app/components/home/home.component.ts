@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../services/product.service";
 import {Router} from "@angular/router";
 import {CategoryService} from "../../services/category.service";
+import { FlashMessagesService} from "angular2-flash-messages";
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private router: Router,
-    private catService: CategoryService
+    private catService: CategoryService,
+    private _flashMessagesService: FlashMessagesService
   ) {
     this.products = [];
     if(localStorage.getItem('isAdmin')=="true")
@@ -46,6 +48,10 @@ export class HomeComponent implements OnInit {
         // console.log(res);
         this.Category = res.data;
       });
+
+    this.topProduct();
+    this.bestSell();
+    this.todayDeals();
   }
 
   cart(cnt,productId,product){
@@ -60,9 +66,25 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`/edit/${id}`])
   }
 
-  delFunc(prod){
-    this.products.splice(this.products.indexOf(prod), 1);
-    this.productService.deleteProduct(prod._id).subscribe(respnse=>{
+  delFunc(product){
+    this.productService.deleteProduct(product._id).subscribe(res => {
+      console.log(res);
+      if(res.success) {
+        this.products.splice(this.products.indexOf(product), 1);
+
+        if(res.data.status == 'Today Deal'){
+          this.todayDealsProducts.splice(this.products.indexOf(product), 1);
+        } else if(res.data.status == 'Best Sell') {
+          this.bestSellProducts.splice(this.products.indexOf(product), 1);
+        } else if(res.data.status == 'Top Product'){
+          this.topProducts.splice(this.products.indexOf(product), 1);
+        }
+
+        this._flashMessagesService.show('Product Deleted', {cssClass: 'alert-success'});
+        
+      } else {
+        this._flashMessagesService.show('Product can not be delete', {cssClass: 'alert-danger'});
+      }
     });
   }
 
