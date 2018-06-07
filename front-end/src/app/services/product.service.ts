@@ -51,6 +51,16 @@ export class ProductService {
       .map(res => res.json())
   }
 
+  getTopProduct(id){
+
+    console.log('at get top product service:' + id );
+    let headers = new Headers();
+    headers.append('Content-type','application/json');
+
+    return this.http.get(`http://localhost:5500/product/top/${id}`,{headers: headers})
+      .map(res => res.json())
+  }
+
   deleteProduct(id){
 
     let headers = new Headers();

@@ -17,11 +17,28 @@
   padding-top: 30px;
 }
 
+.title_view {
+  margin-left: 23%;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 130%;
+  padding-top: 30px;
+  color: rgb(66, 134, 244);
+}
+
+.simple {
+  font-size: 80%;
+  color: rgb(130,130,130);
+}
+
 @media screen and (max-width: 650px){
   .row {
     margin-left: 0%;
   }
   .catView {
+    margin-left: 3%;
+  }
+  .title_view {
     margin-left: 3%;
   }
 }
