@@ -12,6 +12,7 @@ import { CategoryService } from "../../services/category.service";
 })
 export class NavigationComponent implements OnInit {
 
+  products : any = [];
   Category: any;
 
   public isAdmin = 0;
@@ -46,7 +47,12 @@ export class NavigationComponent implements OnInit {
   }
 
   catSelect(category) {
-      console.log('At category select' + category);
+    // console.log('At category select');
+    this.productService.getCategoryProduct(category)
+      .subscribe(res => {
+        console.log(res.data);
+        // this.products = res.data;
+      });
   }
 
 }

@@ -31,13 +31,13 @@
 
 
 .footer-distributed .footer-left{
-	width: 25%;
+	width: 40%;
   margin-left: 20px;
 }
 
 .footer-distributed h3{
 	color:  #ffffff;
-	font: normal 40px 'Cookie', cursive;
+	font: normal 30px 'Cookie', cursive;
 	margin: 0;
 }
 
@@ -56,6 +56,7 @@
 	line-height: 1.8;
 	text-decoration: none;
 	color:  inherit;
+  font-size: 110%;
 }
 
 .footer-distributed .footer-company-name{
@@ -66,7 +67,8 @@
 }
 
 .footer-distributed .footer-center{
-	width: 40%;
+	width: 30%;
+  margin-left: 5%;
 }
 
 .footer-distributed .footer-center i{
@@ -107,12 +109,12 @@
 }
 
 .footer-distributed .footer-right{
-	width: 25%;
+	width: 20%;
 }
 
 .footer-distributed .footer-company-about{
 	line-height: 20px;
-	color:  #92999f;
+	color:  #ccc;
 	font-size: 13px;
 	font-weight: normal;
 	margin: 0;
