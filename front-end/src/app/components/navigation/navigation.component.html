@@ -2,7 +2,13 @@
   <header>
     <div class="inner relative">
 
-      <a href="/"><h3 style="color:  #ffffff; font: normal 60px 'Cookie', cursive;">Bela <span style="color:  #5383d3;">Obela</span></h3></a>
+      <a class="link_logo" href="/">
+        <h3 style="color:  #ffffff; font: normal 30px 'cookie', cursive;">
+          Bela
+          <span style="color:  #5383d3;">Obela</span>
+        </h3>
+      </a>
+
       <a id="menu-toggle" class="button dark" href="#"><i class="icon-reorder"></i></a>
       <nav id="navigation">
         <ul id="main-menu">
@@ -18,7 +24,7 @@
             <span class="dropdown-caret"></span>
             <ul class="sub-menu">
               <li  *ngFor="let cat of Category; let i = index">
-                <a (click)="catSelect(cat._id)"> {{ cat.category }}</a>
+                <a class="link" (click)="catSelect(cat.category)">{{ cat.category }}</a>
               </li>
 
               <!--<li>         &lt;!&ndash;   Category sub list &ndash;&gt;-->
