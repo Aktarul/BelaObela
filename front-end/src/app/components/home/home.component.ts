@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
         }
 
         this._flashMessagesService.show('Product Deleted', {cssClass: 'alert-success'});
-        
+
       } else {
         this._flashMessagesService.show('Product can not be delete', {cssClass: 'alert-danger'});
       }
@@ -131,6 +131,7 @@ export class HomeComponent implements OnInit {
 
   getAllProducts() {
     this.allProductBool = true;
+    this.catBool = false;
     this.productService.getProduct()
       .subscribe( response =>{
         this.products = response.data;
