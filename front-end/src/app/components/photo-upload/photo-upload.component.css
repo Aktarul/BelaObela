@@ -1,6 +1,7 @@
 .bg {
-  background-color: rgb(100,150,90);
+  background-color: white;
   min-height: 420px;
+  margin-bottom: 100px;
 }
 .header-section{
     height: 80px;

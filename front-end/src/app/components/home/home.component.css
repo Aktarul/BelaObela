@@ -1,6 +1,7 @@
 .background {
   background-color: white;
   /*margin-bottom: 200px*/
+  margin-bottom: 100px;
 }
 
 .row {
@@ -132,6 +133,7 @@
   /*background-color: rgb(255,255,255);*/
   overflow-x: hidden;
   padding-top: 20px;
+  margin-bottom: 100px;
 }
 
 .sidenav a {
