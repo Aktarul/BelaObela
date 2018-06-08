@@ -4,6 +4,7 @@ import {AuthService} from "../../services/auth.service";
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { CategoryService } from "../../services/category.service";
+import { DataTransferService } from "../../services/data-transfer.service";
 
 @Component({
   selector: 'app-navigation',
@@ -12,7 +13,6 @@ import { CategoryService } from "../../services/category.service";
 })
 export class NavigationComponent implements OnInit {
 
-  products : any = [];
   Category: any;
 
   public isAdmin = 0;
@@ -20,7 +20,8 @@ export class NavigationComponent implements OnInit {
               public authService: AuthService,
               private router: Router,
               private flashMessage: FlashMessagesService,
-              private catService: CategoryService
+              private catService: CategoryService,
+              public getDataService: DataTransferService
   ) {
     if(localStorage.getItem('isAdmin') == 'true')
       this.isAdmin = 1;
@@ -51,7 +52,8 @@ export class NavigationComponent implements OnInit {
     this.productService.getCategoryProduct(category)
       .subscribe(res => {
         console.log(res.data);
-        // this.products = res.data;
+        this.getDataService.addData(res.data);
+        this.getDataService.addCategory(category);
       });
   }
 

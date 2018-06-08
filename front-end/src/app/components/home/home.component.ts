@@ -3,6 +3,7 @@ import {ProductService} from "../../services/product.service";
 import {Router} from "@angular/router";
 import {CategoryService} from "../../services/category.service";
 import { FlashMessagesService} from "angular2-flash-messages";
+import { DataTransferService } from "../../services/data-transfer.service";
 
 @Component({
   selector: 'app-home',
@@ -28,6 +29,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private router: Router,
+    private dataTransferService: DataTransferService,
     private catService: CategoryService,
     private _flashMessagesService: FlashMessagesService
   ) {
@@ -48,6 +50,22 @@ export class HomeComponent implements OnInit {
         // console.log(res);
         this.Category = res.data;
       });
+
+    this.dataTransferService.newDataSubject.subscribe(
+      data => {
+        console.log(data);
+        this.products = data;
+        this.catBool = true;
+        this.allProductBool = true;
+        // this.selectedCat = category;
+        this.dataTransferService.newCatSubject.subscribe(
+          data2 => {
+            this.selectedCat = data2;
+            console.log(data2);
+          }
+        )
+      }
+    );
 
     this.topProduct();
     this.bestSell();

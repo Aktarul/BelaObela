@@ -76,8 +76,6 @@ export class ProductService {
       .map(res => res.json())
   }
 
-
-
   getCategory(){
 
     let headers = new Headers();

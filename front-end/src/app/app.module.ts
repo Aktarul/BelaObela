@@ -44,6 +44,7 @@ import { CategoryComponent } from './components/category/category.component';
 import {CategoryService} from "./services/category.service";
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import {OrderService} from "./services/order.service";
+import {DataTransferService} from "./services/data-transfer.service";
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import {OrderService} from "./services/order.service";
     FileService,
     AdminGaurd,
     CategoryService,
-    OrderService
+    OrderService,
+    DataTransferService
   ],
   bootstrap: [AppComponent]
 })
