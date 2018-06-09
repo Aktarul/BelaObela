@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
         this.products = response.data;
         // console.log(this.products);
       });
+
     this.catService.getCategory()
       .subscribe(res => {
         // console.log(res);
@@ -141,7 +142,7 @@ export class HomeComponent implements OnInit {
     this.todaySearch = 'Today Deal';
     this.productService.getTopProduct(this.todaySearch)
       .subscribe(res => {
-        console.log(res.data);
+        // console.log(res.data);
         this.todayDealsProducts = res.data;
       });
   }

@@ -1,7 +1,12 @@
 .about {
-  margin-bottom: 400px;
+  margin-bottom: 0px;
 }
 
 .bg {
-  margin-bottom: 100px;
+  padding-bottom: 100px;
+  background-image: url("about-bg.png");
+  background-repeat: repeat;
+}
+body {
+  margin: 0;
 }
