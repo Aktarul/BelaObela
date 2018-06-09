@@ -3,10 +3,11 @@
 }
 
 .bg {
-  padding-bottom: 100px;
-  background-image: url("about-bg.png");
-  background-repeat: repeat;
+  /*padding-bottom: 100px;*/
+  /*background-color: #26734d;*/
+  /*background-image: url("about-bg.png");*/
+  /*background-repeat: repeat;*/
 }
 body {
-  margin: 0;
+  /*margin: 0;*/
 }
