@@ -1,13 +1,30 @@
-.about {
-  margin-bottom: 0px;
+.bg {
+  margin-bottom: 100px;
 }
 
-.bg {
-  /*padding-bottom: 100px;*/
-  /*background-color: #26734d;*/
-  /*background-image: url("about-bg.png");*/
-  /*background-repeat: repeat;*/
+.rcorners {
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid rgb(10,240,120);
+;
+  padding: 20px;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 20px;
 }
-body {
-  /*margin: 0;*/
+
+.description {
+  font-size: 130%;
+  font-family: Consolas;
+}
+
+.description span{
+  font-size: 110%;
+}
+
+@media screen  and  (max-width: 800px){
+  .rcorners {
+    width: 100%;
+    margin: 1%;
+  }
 }
