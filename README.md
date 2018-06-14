@@ -15,3 +15,11 @@ belaobela is an online product buying platform
   6. Install dependencies : `npm install --save`
   7. Run client : `ng serve`
   8. Visit: `localhost:4200`
+
+## Usage
+After completing installation create at least one Admin. Here are the steps,
+  1. Register an account. 
+  2. Open any GUI for MongoDB ( Compass/ Robo3T )
+  3. Change the created user's isAdmin property to true
+
+Thus getting an admin gives abilities to add, update, delete products, manage users, orders and complains.
