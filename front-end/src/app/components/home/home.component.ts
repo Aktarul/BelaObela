@@ -109,7 +109,7 @@ export class HomeComponent implements OnInit {
 
   topProduct() {
     this.topSearch = 'Top Product';
-    console.log('At top search = '+ this.topSearch);
+    console.log('At top search = ' + this.topSearch);
     this.productService.getTopProduct(this.topSearch)
       .subscribe(res => {
         console.log(res.data);
