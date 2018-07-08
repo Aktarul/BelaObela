@@ -22,7 +22,7 @@ var userLogin = (req, res, next) => {
                 if(err) {
 
                 } else if(match) {
-                    var token = jwt.sign(user, config.secret, {expiresIn: config.tokenexp});
+                    var token = jwt.sign(user.toJSON(), config.secret, {expiresIn: config.tokenexp});
                     return res.status(201).json({success: true, data: user, token: token });
                 } else {
                     return res.status(201).json({
