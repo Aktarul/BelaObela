@@ -6,7 +6,7 @@ var fs = require('fs');
 
 let store = multer.diskStorage({
     destination: function(req, file, cb){
-        cb(null, './public');
+        cb(null, './public/upload');
     },
     filename: function(req, file, cb){
         cb(null, Date.now() + '.' + file.originalname);
@@ -302,7 +302,7 @@ var deleteProduct = (req, res, next) => {
             let paths = product.picture;
             for ( let index = 0; index<paths.length; index++) {
                 let path = paths[index];
-                fs.unlink("./public/" + path, (err) => {
+                fs.unlink("./public/upload/" + path, (err) => {
                     if (err) {
                         console.log("failed to delete local image:"+ err);
                     } else {
