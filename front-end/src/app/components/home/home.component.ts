@@ -92,14 +92,16 @@ export class HomeComponent implements OnInit {
         this.products.splice(this.products.indexOf(product), 1);
 
         if(res.data.status == 'Today Deal'){
+          console.log(this.todayDealsProducts);
           this.todayDealsProducts.splice(this.products.indexOf(product), 1);
+          console.log(this.todayDealsProducts);
         } else if(res.data.status == 'Best Sell') {
           this.bestSellProducts.splice(this.products.indexOf(product), 1);
         } else if(res.data.status == 'Top Product'){
           this.topProducts.splice(this.products.indexOf(product), 1);
         }
-
         this._flashMessagesService.show('Product Deleted', {cssClass: 'alert-success'});
+        this.ngOnInit();
 
       } else {
         this._flashMessagesService.show('Product can not be delete', {cssClass: 'alert-danger'});
