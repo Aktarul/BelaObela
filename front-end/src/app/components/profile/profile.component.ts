@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from "../../services/auth.service";
 import { Router} from "@angular/router";
+import {User} from "../../model/user";
 
 @Component({
   selector: 'app-profile',
@@ -11,9 +12,9 @@ import { Router} from "@angular/router";
 export class ProfileComponent implements OnInit {
 
   users: any;
-  singleUser: object;
+  singleUser: User;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(public authService: AuthService, private router: Router) {
     this.users = [];
     this.singleUser = null;
   }
@@ -21,7 +22,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.authService.getProfile().subscribe(response =>{
         this.users = response.data;
-        //console.log(this.users);
+        console.log(this.users);
       });
 
     //console.log("Here " + localStorage.getItem('loginId'));
@@ -29,7 +30,8 @@ export class ProfileComponent implements OnInit {
     this.authService.getSiingleProfile(localStorage.getItem('loginId'))
       .subscribe(response=>{
         this.singleUser = response.data;
-        //console.log(this.singleUser);
+        console.log('single user: ');
+        console.log(this.singleUser);
       })
   }
 

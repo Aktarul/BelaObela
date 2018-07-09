@@ -1,7 +1,7 @@
 <div class="panel panel-primary bg2" style="width: 100%; margin: 0%">
   <div class="page-header">User Profile</div>
 
-  <div class="panel-body">
+  <div *ngIf="authService.isAdmin()" class="panel-body">
     <div *ngFor="let user of users;let i = index" class="col-sm-6 col-md-3">
       <div  class="thumbnail" style="padding-left: 20px; font-size: 120%">
         <p><b>Name: </b>{{user.name}}</p>
@@ -12,19 +12,19 @@
         </a></p>
       </div>
     </div>
+  </div>
 
-    <div *ngIf="singleUser" class="col-lg-6 col-md-3" style="padding-bottom: 100px"> <br><br>
-      <div *ngIf="!users"  class="thumbnail" style="padding-left: 40px; font-size: 150%; padding-bottom: 50px">
-        <p><b>Name: </b>{{singleUser.name}}</p>
-        <p>
-          <b>Email: </b>{{singleUser.email}}
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a (click)="editProfile(singleUser._id)" class="btn btn-info a-btn-slide-text">
-            <span><strong>Edit Your Profile</strong></span>
-          </a>
-        </p>
-        <p><b>Username: </b>{{singleUser.username}}</p>
-      </div>
+  <div *ngIf="!authService.isAdmin() && authService.isLoggedIn()" class="col-lg-6 col-md-3" style="padding-bottom: 100px"> <br><br>
+    <div class="thumbnail" style="padding-left: 40px; font-size: 150%; padding-bottom: 50px">
+      <p><b>Name: </b>{{singleUser?.name}}</p>
+      <p>
+        <b>Email: </b>{{singleUser?.email}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a (click)="editProfile(singleUser?._id)" class="btn btn-info a-btn-slide-text">
+          <span><strong>Edit Your Profile</strong></span>
+        </a>
+      </p>
+      <p><b>Username: </b>{{singleUser?.username}}</p>
     </div>
   </div>
 </div>

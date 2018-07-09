@@ -6,4 +6,5 @@ export class User{
   isAdmin: string;
   wishList: [String];
   buyList: [String];
+  _id: string;
 }
