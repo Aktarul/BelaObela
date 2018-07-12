@@ -23,3 +23,7 @@ After completing installation create at least one Admin. Here are the steps,
   3. Change the created user's isAdmin property to true
 
 Thus getting an admin gives abilities to add, update, delete products, manage users, orders and complains.
+
+
+## Licence
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
