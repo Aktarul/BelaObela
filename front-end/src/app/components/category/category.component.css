@@ -98,3 +98,30 @@
     margin-left: 2%;
   }
 }
+
+@media screen and (max-width: 900px){
+  .category_show {
+    width: 96%;
+    margin-left: 2%;
+  }
+
+  .column {
+    float: none;
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 350px){
+  .category_show {
+    width: 100%;
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  .column {
+    float: none;
+    width: 100%;
+    padding: 5px;
+  }
+}

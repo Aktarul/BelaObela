@@ -14,6 +14,7 @@ export class CategoryComponent implements OnInit {
 
   Category: any[];
   SubCategory: any[];
+  // tempSubCategory: any[];
   category: String;
   category_id: String;
   input_category: String;
@@ -36,13 +37,37 @@ export class CategoryComponent implements OnInit {
 
 
   deleteCategory(category) {
+    let temp_id = category._id;
     // console.log(category._id);
+    var r = confirm('Are you sure? You want to delete \''+category.category+'\' Category !');
 
-    this.Category.splice(this.Category.indexOf(category), 1);
-    this.catService.deleteCategory(category._id)
-      .subscribe(res=>{
-        console.log(res);
-    });
+    if(r == true) {
+      this.Category.splice(this.Category.indexOf(category), 1);
+      this.catService.deleteCategory(category._id)
+        .subscribe(res=>{
+          console.log(res);
+
+          // deleting sub categories
+          if(res.success) {
+            this.subCatService.getSubCategorySearch(temp_id)
+              .subscribe(res => {
+                console.log('subcategories: ');
+                // this.tempSubCategory = res.data;
+
+                let l = res.data.length;
+                console.log('length: '+ l);
+
+                for(var i = 0; i < l ; i++) {
+                  this.subCatService.deleteSubCategory(res.data[i]._id)
+                    .subscribe(res2=>{
+                      console.log(res2);
+                    });
+                }
+              });
+          }
+        });
+    }
+
   }
 
   addCategory() {
@@ -129,12 +154,16 @@ export class CategoryComponent implements OnInit {
 
   deleteSubCategory(category) {
     // console.log(category._id);
+    var r = confirm('Are you sure? You want to delete the sub-category!');
 
-    this.SubCategory.splice(this.SubCategory.indexOf(category), 1);
-    this.subCatService.deleteSubCategory(category._id)
-      .subscribe(res=>{
-        console.log(res);
-      });
+    if(r == true) {
+      this.SubCategory.splice(this.SubCategory.indexOf(category), 1);
+      this.subCatService.deleteSubCategory(category._id)
+        .subscribe(res=>{
+          console.log(res);
+        });
+    }
+
   }
 
 
