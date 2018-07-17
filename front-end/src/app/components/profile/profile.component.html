@@ -3,7 +3,7 @@
 
   <div *ngIf="authService.isAdmin()" class="panel-body">
     <div *ngFor="let user of users;let i = index" class="col-sm-6 col-md-3">
-      <div  class="thumbnail" style="padding-left: 20px; font-size: 120%">
+      <div  class="thumbnail">
         <p><b>Name: </b>{{user.name}}</p>
         <p><b>Email: </b>{{user.email}}</p>
         <p><b>Username: </b>{{user.username}}</p>

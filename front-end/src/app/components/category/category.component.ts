@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService} from "../../services/category.service";
 import {FlashMessagesService} from "angular2-flash-messages";
 import { Router } from "@angular/router";
+import { SubCategoryService } from "../../services/sub-category.service";
 
 
 @Component({
@@ -12,11 +13,17 @@ import { Router } from "@angular/router";
 export class CategoryComponent implements OnInit {
 
   Category: any[];
+  SubCategory: any[];
+  category: String;
+  category_id: String;
   input_category: String;
+  input_sub_category: String;
+  subCategory_clicked = false;
 
   constructor(private catService: CategoryService,
               private _flashMessagesService: FlashMessagesService,
-              private router: Router
+              private router: Router,
+              private subCatService: SubCategoryService
   ) { }
 
   ngOnInit() {
@@ -58,11 +65,78 @@ export class CategoryComponent implements OnInit {
           this.redirectTo('category');
         }
         else {
-          this._flashMessagesService.show('Something is worng! Please try again!', { cssClass: 'alert-danger'});
+          this._flashMessagesService.show('Something is wrong! Please try again!', { cssClass: 'alert-danger'});
           this.router.navigate(['/category']);
         }
       });
   }
+
+
+  addSubCategory() {
+
+    console.log(this.category);
+
+    if(!this.category) {
+      this._flashMessagesService.show('Please select a category!',{ cssClass: 'alert-danger'});
+      return false;
+    }
+
+    for(var i = 0 ; i < this.Category.length ; i++){
+      if(this.Category[i].category == this.category){
+        this.category_id = this.Category[i]._id;
+        break;
+      }
+    }
+
+    console.log(this.category_id);
+
+
+    if(!this.input_sub_category){
+      this._flashMessagesService.show('Please enter a sub-category name!',{ cssClass: 'alert-danger'});
+      return false;
+    }
+
+    let data = {
+      sub_Category: this.input_sub_category,
+      category_id: this.category_id
+    };
+
+    // console.log('in add category typescript');
+
+    this.subCatService.addSubCategory(data)
+      .subscribe(res => {
+        if(res.success) {
+          this._flashMessagesService.show('Sub-category added', { cssClass: 'alert-success'});
+          this.redirectTo('category');
+        }
+        else {
+          this._flashMessagesService.show('Something is wrong! Please try again!', { cssClass: 'alert-danger'});
+          this.router.navigate(['/category']);
+        }
+      });
+  }
+
+  showSubCategory(id) {
+    console.log(id);
+    this.subCatService.getSubCategorySearch(id)
+      .subscribe(res => {
+        console.log(res.data);
+        this.SubCategory = res.data;
+        // console.log(this.SubCategory);
+      });
+    this.subCategory_clicked = true;
+  }
+
+  deleteSubCategory(category) {
+    // console.log(category._id);
+
+    this.SubCategory.splice(this.SubCategory.indexOf(category), 1);
+    this.subCatService.deleteSubCategory(category._id)
+      .subscribe(res=>{
+        console.log(res);
+      });
+  }
+
 
   redirectTo(uri:string){           // used for redirect
     this.router.navigateByUrl('/address', {skipLocationChange: true}).then(()=>

@@ -3,6 +3,7 @@ var router = express.Router();
 var categoryController = require('../controller/subCategory');
 var authConttoller = require('../controller/auth');
 
+router.get('/search/:cat_id', categoryController.getSubCategorySearch);
 router.post('/', categoryController.createSubCategory);
 // router.patch('/:id', categoryController.updatecategory);
 router.get('/:id', categoryController.getSubCategory);

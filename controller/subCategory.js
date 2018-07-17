@@ -133,11 +133,39 @@ var deleteSubCategory = (req, res, next) => {
     });
 };
 
+var getSubCategorySearch = (req, res, next) => {
+
+    // console.log('at backend: category = ' + cat);
+
+    let cat = req.params.cat_id;
+
+    if(cat){
+        SubCategory.find({category_id: new RegExp(cat,'i')}, (err, subcategory) => {
+            if(err) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'can not find sub-category'
+                });
+            }else {
+                return res.status(201).json({
+                    success: true,
+                    data: subcategory
+                });
+            }
+        })
+    } else {
+        return res.status(200).json({
+            success: false
+        });
+    }
+};
+
 module.exports = {
 
     createSubCategory,
     getSubCategory,
     getAllSubCategory,
     updateSubCategory,
-    deleteSubCategory
+    deleteSubCategory,
+    getSubCategorySearch
 };

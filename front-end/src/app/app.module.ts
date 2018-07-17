@@ -45,6 +45,7 @@ import {CategoryService} from "./services/category.service";
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import {OrderService} from "./services/order.service";
 import {DataTransferService} from "./services/data-transfer.service";
+import {SubCategoryService} from "./services/sub-category.service";
 
 
 @NgModule({
@@ -93,7 +94,8 @@ import {DataTransferService} from "./services/data-transfer.service";
     AdminGaurd,
     CategoryService,
     OrderService,
-    DataTransferService
+    DataTransferService,
+    SubCategoryService
   ],
   bootstrap: [AppComponent]
 })

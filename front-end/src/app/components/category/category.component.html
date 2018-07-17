@@ -1,39 +1,95 @@
 <div class="panel panel-primary new">
-  <div class="catHeader">Category</div>
   <div class="panel-body">
+    <div class="row2">
+      <div class="column">
+        <div class="catHeader">Category</div>
+        <!--view category-->
+        <div *ngFor="let cat of Category;let i = index">
+          <div  class="category_show">
+            <p style="background-color: rgba(180,240,255,1); padding: 5px">
+              {{i+1}}: <b>{{cat.category}}</b>
+            </p>
 
-    <!--view category-->
-    <table  class="table">
-      <thead>
-      <tr style="font-size: 135%">
-        <th style="text-align: center">Name</th>
-        <th style="text-align: center">Action</th>
-      </tr>
-      </thead>
+            <button (click)="showSubCategory(cat._id)" class="button button1">Show Subcategory...</button>
 
-      <tbody *ngFor="let cat of Category;let i = index">
-      <tr>
-        <td style="text-align: center; font-size: 130%">{{cat.category}}</td>
-        <td style="text-align: center"><a (click)="deleteCategory(cat)" class="btn btn-sm btn-danger a-btn-slide-text">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          <span><strong>Delete</strong></span>
-        </a></td>
-      </tr>
-      </tbody>
-    </table>
-
-    <!--add category-->
-    <div class="form-group row sizeControl">
-      <div class="col-sm-10">
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
-          <input type="text" [(ngModel)]="input_category" class="form-control" name="category" id="input_category"  placeholder="Add a category name"/>
+            <a (click)="deleteCategory(cat)" class="btn btn-sm btn-danger a-btn-slide-text">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              <span><strong>Delete category</strong></span>
+            </a>
+          </div>
         </div>
       </div>
-      <a (click)="addCategory()" class="btn btn-sm btn-success a-btn-slide-text">
-        <span><strong>Add Category</strong></span>
-      </a>
-    </div>
 
+      <!--view subcategory starts-->
+      <div class="column">
+        <div class="catHeader">Sub-Category</div>
+        <div  class="category_show borders">
+          <div *ngIf="subCategory_clicked">
+            <div *ngFor="let subCat of SubCategory; let j = index" class="border_down">
+              <p style="padding: 5px; font-size: 120%">
+                {{j+1}}: <b>{{subCat.sub_Category}}</b>
+
+                <a (click)="deleteSubCategory(subCat)" class="btn btn-sm btn-danger a-btn-slide-text">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div *ngIf="!SubCategory">
+            <p style="padding: 5px; font-size: 120%">
+              Click Show Subcategory button
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--view subcategory ends-->
+
+    </div>
   </div>
+  <!--view category end-->
+
+
+  <!--add category-->
+  <div class="form-group row sizeControl subcategory">
+    <h3>Add a Category: </h3>
+    <div class="col-sm-10">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+        <input type="text" [(ngModel)]="input_category" class="form-control" name="category" id="input_category"  placeholder="Add a category name"/>
+      </div>
+    </div>
+    <a (click)="addCategory()" class="btn btn-sm btn-success a-btn-slide-text">
+      <span><strong>Add Category</strong></span>
+    </a>
+  </div>
+  <!--add category end-->
+
+
+  <!--subcategory add section-->
+  <div class="subcategory sizeControl">
+    <h3>Add a Subcategory: </h3>
+    <div class="form-group">
+      <!--<label class="col-sm-2 col-form-label">Category</label>-->
+      <div class="col-sm-4" >
+        <select type="text" [(ngModel)]="category" name="category" class="form-control">
+          <option>Select a category...</option>
+          <option *ngFor="let cat of Category" >{{cat.category}}</option>
+        </select>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+          <input type="text" [(ngModel)]="input_sub_category" class="form-control" name="sub-category" id="input_sub_category"  placeholder="Enter sub-category name"/>
+        </div>
+      </div>
+
+      <a (click)="addSubCategory()" class="btn btn-sm btn-success a-btn-slide-text">
+        <span><strong>Add Sub-Category</strong></span>
+      </a>
+
+    </div>
+  </div>
+  <!--sub-category add section end-->
+
 </div>
