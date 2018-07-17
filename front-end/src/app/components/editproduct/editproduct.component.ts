@@ -3,6 +3,8 @@ import {ProductService} from "../../services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../../model/product";
 import {Category} from "../../model/category";
+import {SubCategoryService} from "../../services/sub-category.service";
+
 
 @Component({
   selector: 'app-editproduct',
@@ -11,6 +13,7 @@ import {Category} from "../../model/category";
 })
 export class EditproductComponent implements OnInit {
 
+  Sub_Category: any[];
   product: Product;
   category: Category[];
   status1 = 'Today Deal';
@@ -20,7 +23,8 @@ export class EditproductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private subCatService: SubCategoryService
   ) {
     this.product = new Product();
     this.category = [];
@@ -40,9 +44,17 @@ export class EditproductComponent implements OnInit {
         this.category = response.data;
       })
     console.log(this.product);
+
+
+    this.subCatService.getSubCategory()
+      .subscribe(res => {
+        this.Sub_Category = res.data;
+      } )
   }
 
   update(id){
+    console.log('subcat: ');
+    console.log(this.product.sub_Category);
     this.productService.updateProduct(id,this.product)
       .subscribe(response=>{
         console.log(response)

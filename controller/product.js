@@ -23,6 +23,7 @@ var createProduct = (req, res, next) => {
         //picture = req.file.filename ,
         code = req.body.code,
         category = req.body.category,
+        sub_Category = req.body.sub_Category,
         description = req.body.description,
         price = req.body.price,
         avl = req.body.avl,
@@ -38,6 +39,7 @@ var createProduct = (req, res, next) => {
         // picture: picture,
         code:code,
         category: category,
+        sub_Category: sub_Category,
         description: description,
         price: price,
         avl: avl,
@@ -178,13 +180,16 @@ var updateProduct = (req, res, next) => {
         } else {
 
 
-            console.log('In upload yes');
+            console.log('In update yes');
+            console.log(req.body.category + req.body.sub_Category);
 
             var name = req.body.name,
                 code = req.body.code,
                 picture = req.file.filename ,
                 description = req.body.description,
                 price = req.body.price,
+                category = req.body.category,
+                sub_Category = req.body.sub_Category,
                 avl = req.body.avl,
                 status = req.body.status;
 
@@ -202,6 +207,8 @@ var updateProduct = (req, res, next) => {
                     product.picture.push(picture);
                     product.name = name || product.name;
                     product.code = code || product.code;
+                    product.category = category || product.category;
+                    product.sub_Category = sub_Category || product.sub_Category;
                     // product.picture = picture || product.picture;
                     product.description =description || product.description;
                     product.price = price || product.price;
@@ -233,7 +240,6 @@ var updateProduct = (req, res, next) => {
     });
 };
 
-
 var updateProduct2 = (req, res, next) => {
 
     console.log('In Update 2');
@@ -242,6 +248,8 @@ var updateProduct2 = (req, res, next) => {
         code = req.body.code,
         description = req.body.description,
         avl = req.body.avl,
+        category = req.body.category,
+        sub_Category = req.body.sub_Category,
         price = req.body.price,
         status = req.body.status;
 
@@ -260,6 +268,8 @@ var updateProduct2 = (req, res, next) => {
             product.description = description || product.description;
             product.price = price || product.price;
             product.code = code || product.code;
+            product.category = category || product.category;
+            product.sub_Category = sub_Category || product.sub_Category;
             product.avl = avl || product.avl;
             product.status = status || product.status;
 
@@ -282,7 +292,6 @@ var updateProduct2 = (req, res, next) => {
         }
     });
 };
-
 
 var deleteProduct = (req, res, next) => {
 

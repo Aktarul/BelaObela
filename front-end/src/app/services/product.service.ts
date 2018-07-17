@@ -17,6 +17,7 @@ export class ProductService {
   }
 
   registerProduct(product){
+
     let headers = new Headers();
     headers.append('Content-type','application/json');
 
@@ -169,6 +170,8 @@ export class ProductService {
     let headers = new Headers();
 
     console.log("In update product ");
+    console.log('product service: '+ product.sub_Category);
+
     //console.log(JSON.stringify(product));
 
     headers.append('Content-type','application/json');
