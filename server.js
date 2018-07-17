@@ -43,6 +43,9 @@ app.use('/category',categoryRouter);
 var orderRouter = require('./routes/order');
 app.use('/order',orderRouter);
 
+var subCategoryRouter = require('./routes/subCategory');
+app.use('/subcategory',subCategoryRouter);
+
 app.get('/',(req,res)=>{
     res.send('Foobar');
 });

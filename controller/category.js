@@ -4,9 +4,6 @@ var Category = require('../model/category');
 
 var createCategory = (req, res, next) => {
 
-    console.log('this is create product');
-
-
 
     var
         //picture = req.file.filename ,
@@ -38,9 +35,6 @@ var createCategory = (req, res, next) => {
         }
     });
 
-
-
-
 };
 
 
@@ -59,7 +53,7 @@ var getCategory = (req, res, next) => {
             });
         }
     });
-}
+};
 
 var getAllCategory = (req, res, next) => {
     Category.find( (err, category) => {
@@ -113,7 +107,7 @@ var updatecategory = (req, res, next) => {
                 }
             });
 
-}
+};
 
 var deletecategory = (req, res, next) => {
     console.log('In category delete controller');
@@ -132,7 +126,7 @@ var deletecategory = (req, res, next) => {
             });
         }
     });
-}
+};
 
 module.exports = {
 
@@ -142,4 +136,4 @@ module.exports = {
     updatecategory,
     deletecategory
 
-}
+};
