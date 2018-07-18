@@ -86,8 +86,6 @@ export class ProductService {
       .map(res => res.json())
   }
 
-
-
   storeUserDatta(paramcnt, userId, product){
     // console.log(product);
 

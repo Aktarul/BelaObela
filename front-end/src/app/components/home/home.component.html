@@ -3,16 +3,35 @@
     <div class="sidenav">
       <h3 style="text-align: center" class="page-header">Categories</h3>
       <div  *ngFor="let cat of Category; let i = index">
-        <a class="link" (click)="catSelect(cat.category)">{{ cat.category }}
+        <a class="link" (click)="catSelect(cat)">{{ cat.category }}
           <!--<i class="right pull-right"></i>-->
         </a>
       </div>
     </div>
 
-    <div *ngIf="catBool" class="catView">Selected Category: <b>{{ selectedCat }}</b></div>
+    <div *ngIf="catBool" class="catView">
+      Selected Category: <b>{{ selectedCat }}</b>
+      <br><br>
+      <div class="form-group">
+        <div class="col-sm-3">Select a sub-category:</div>
+        <div class="col-sm-4" >
+          <select type="text" [(ngModel)]="sub_Category" name="sub_Category" class="form-control">
+
+            <option>Select a subcategory...</option>
+            <option *ngFor="let subCat of Sub_Category" >{{subCat.sub_Category}}</option>
+
+          </select>
+        </div>
+        <button (click)="getProductBySubCat()" class="button button4">Search</button>
+      </div>
+    </div>
+
+
+
 
 
     <!--Todays Deals starts here-->
+    <div *ngIf="catBool"  style="margin-top: 80px"></div>
     <div *ngIf="todayDealsProducts && statusBool && !allProductBool && !catBool" class="title_view">
       Today's Deals
     </div>

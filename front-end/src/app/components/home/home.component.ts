@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from "../../services/product.service";
-import {Router} from "@angular/router";
-import {CategoryService} from "../../services/category.service";
-import { FlashMessagesService} from "angular2-flash-messages";
+import { ProductService } from "../../services/product.service";
+import { Router } from "@angular/router";
+import { CategoryService } from "../../services/category.service";
+import { FlashMessagesService } from "angular2-flash-messages";
 import { DataTransferService } from "../../services/data-transfer.service";
+import { SubCategoryService } from "../../services/sub-category.service";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,13 @@ import { DataTransferService } from "../../services/data-transfer.service";
 })
 export class HomeComponent implements OnInit {
 
+  temp_category: any;
+  sub_Category: any;
+  temp_Sub_Category_Product: any = [];
+  Sub_Category_Product: any = [];
+  Sub_Category: any = [];
   products : any = [];
+  temp_products : any = [];
   topProducts: any = [];
   bestSellProducts: any = [];
   todayDealsProducts: any = [];
@@ -31,7 +38,8 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private dataTransferService: DataTransferService,
     private catService: CategoryService,
-    private _flashMessagesService: FlashMessagesService
+    private _flashMessagesService: FlashMessagesService,
+    private subCatService: SubCategoryService
   ) {
     this.products = [];
     if(localStorage.getItem('isAdmin')=="true")
@@ -52,6 +60,11 @@ export class HomeComponent implements OnInit {
         this.Category = res.data;
       });
 
+    this.subCatService.getSubCategory()
+      .subscribe(res => {
+        this.Sub_Category = res.data;
+      } )
+
     this.dataTransferService.newDataSubject.subscribe(
       data => {
         console.log(data);
@@ -62,7 +75,7 @@ export class HomeComponent implements OnInit {
         this.dataTransferService.newCatSubject.subscribe(
           data2 => {
             this.selectedCat = data2;
-            console.log(data2);
+            // console.log(data2);
           }
         )
       }
@@ -87,14 +100,14 @@ export class HomeComponent implements OnInit {
 
   delFunc(product){
     this.productService.deleteProduct(product._id).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       if(res.success) {
         this.products.splice(this.products.indexOf(product), 1);
 
         if(res.data.status == 'Today Deal'){
-          console.log(this.todayDealsProducts);
+          // console.log(this.todayDealsProducts);
           this.todayDealsProducts.splice(this.products.indexOf(product), 1);
-          console.log(this.todayDealsProducts);
+          // console.log(this.todayDealsProducts);
         } else if(res.data.status == 'Best Sell') {
           this.bestSellProducts.splice(this.products.indexOf(product), 1);
         } else if(res.data.status == 'Top Product'){
@@ -111,10 +124,10 @@ export class HomeComponent implements OnInit {
 
   topProduct() {
     this.topSearch = 'Top Product';
-    console.log('At top search = ' + this.topSearch);
+    // console.log('At top search = ' + this.topSearch);
     this.productService.getTopProduct(this.topSearch)
       .subscribe(res => {
-        console.log(res.data);
+        // console.log(res.data);
         this.topProducts = res.data;
       });
   }
@@ -135,7 +148,7 @@ export class HomeComponent implements OnInit {
     this.bestSearch = 'Best Sell';
     this.productService.getTopProduct(this.bestSearch)
       .subscribe(res => {
-        console.log(res.data);
+        // console.log(res.data);
         this.bestSellProducts = res.data;
       });
   }
@@ -161,15 +174,63 @@ export class HomeComponent implements OnInit {
   }
 
   catSelect(category) {
+    // this.temp_category = category;
+    this.sub_Category = null;
     // console.log('At category select');
-    this.productService.getCategoryProduct(category)
+    this.productService.getCategoryProduct(category.category)
       .subscribe(res => {
         // console.log(res.data);
-        this.products = res.data;
         this.catBool = true;
         this.allProductBool = true;
-        this.selectedCat = category;
+        this.selectedCat = category.category;
+
+        let j = 0;
+        for(let i = 0; i < res.data.length; i++){
+          if(res.data[i].category == this.selectedCat){
+            this.temp_products[j] = res.data[i];
+            j++;
+          }
+        }
+        this.products = this.temp_products;
+        this.Sub_Category_Product = this.temp_products; // used to store every selected category product
+        // console.log(this.temp_products);
+
+        this.subCatService.getSubCategorySearch(category._id)
+          .subscribe(res => {
+            // console.log(res.data);
+            this.Sub_Category = res.data;
+            // console.log(this.SubCategory);
+          });
       });
     // console.log(this.catBool);
+
+
+  }
+
+  getProductBySubCat() {
+
+    if(this.sub_Category == null || this.sub_Category == 'Select a subcategory...') {
+      this._flashMessagesService.show('No sub-category selected!', {cssClass: 'alert-danger'});
+      return;
+    }
+
+    let temp_sub_Category = this.sub_Category;
+    // this.catSelect(this.temp_category);
+
+    // this.Sub_Category_Product is used to store every selected category product
+    this.temp_Sub_Category_Product = [];
+    console.log('sub cat:' + temp_sub_Category);
+    let j = 0;
+    for(let i = 0; i < this.Sub_Category_Product.length; i++){
+      // console.log(this.products[i].sub_Category);
+      if(this.Sub_Category_Product[i].sub_Category == temp_sub_Category){
+        this.temp_Sub_Category_Product[j] = this.Sub_Category_Product[i];
+        // console.log(this.products[i].sub_Category);
+        // console.log(this.sub_Category);
+        j++;
+      }
+    }
+    this.products = this.temp_Sub_Category_Product;
+    console.log(this.products);
   }
 }
