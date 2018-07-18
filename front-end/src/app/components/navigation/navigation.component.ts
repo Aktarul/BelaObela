@@ -50,7 +50,7 @@ export class NavigationComponent implements OnInit {
   catSelect(category) {
     this.router.navigate(['/']);
     // console.log('At category select');
-    this.productService.getCategoryProduct(category)
+    this.productService.getCategoryProduct(category.category)
       .subscribe(res => {
         console.log(res.data);
         this.getDataService.addData(res.data);

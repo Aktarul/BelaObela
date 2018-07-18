@@ -24,7 +24,7 @@
             <span class="dropdown-caret"></span>
             <ul class="sub-menu">
               <li  *ngFor="let cat of Category; let i = index">
-                <a class="link" (click)="catSelect(cat.category)">{{ cat.category }}</a>
+                <a class="link" (click)="catSelect(cat)">{{ cat.category }}</a>
               </li>
 
               <!--<li>         &lt;!&ndash;   Category sub list &ndash;&gt;-->

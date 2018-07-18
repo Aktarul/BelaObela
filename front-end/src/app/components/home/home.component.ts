@@ -68,13 +68,14 @@ export class HomeComponent implements OnInit {
     this.dataTransferService.newDataSubject.subscribe(
       data => {
         console.log(data);
-        this.products = data;
+        // this.products = data;
         this.catBool = true;
         this.allProductBool = true;
         // this.selectedCat = category;
         this.dataTransferService.newCatSubject.subscribe(
           data2 => {
-            this.selectedCat = data2;
+            this.selectedCat = data2.category;
+            this.catSelect(data2);
             // console.log(data2);
           }
         )
@@ -174,6 +175,8 @@ export class HomeComponent implements OnInit {
   }
 
   catSelect(category) {
+    this.temp_products= [];
+    this.products = [];
     // this.temp_category = category;
     this.sub_Category = null;
     // console.log('At category select');
