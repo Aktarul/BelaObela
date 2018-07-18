@@ -240,15 +240,22 @@ ul.sub-menu > li > a.parent {
     /*background: #333;*/
   /*}*/
 
-  .link_logo {
-    visibility: hidden;
-  }
 }
 
 @media screen and (max-width: 320px) {
   #main-menu li {
     margin: 0;
     padding: 0px;
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  .link_logo {
+    visibility: hidden;
+  }
+  .form1 {
+    visibility: hidden;
   }
 }
 
@@ -346,3 +353,5 @@ ul.sub-menu > li > a.parent {
   cursor: pointer;
   cursor: hand;
 }
+
+

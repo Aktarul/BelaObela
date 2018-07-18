@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
       data3 => {
         // this.products = [];
         this.products = data3.data;
-        // this.catBool = true;
+        this.catBool = false;
         this.allProductBool = true;
         console.log(this.products);
       }
