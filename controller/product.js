@@ -108,6 +108,33 @@ var getCatProduct = (req, res, next) => {
     }
 };
 
+var getSearchProduct = (req, res, next) => {
+
+    // console.log('at backend: category = ' + cat);
+
+    let cat = req.params.cat;
+
+    if(cat){
+        Product.find({name: new RegExp(cat,'i')}, (err, product) => {
+            if(err) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'can not find any product'
+                });
+            }else {
+                return res.status(201).json({
+                    success: true,
+                    data: product
+                });
+            }
+        })
+    } else {
+        return res.status(200).json({
+            success: false
+        });
+    }
+};
+
 var getTopProduct = (req, res, next) => {
 
     // console.log('At getTopProduct: ' + topSearch)
@@ -339,5 +366,6 @@ module.exports = {
     getCategory,
     updateProduct2,
     getCatProduct,
-    getTopProduct
+    getTopProduct,
+    getSearchProduct
 };

@@ -4,6 +4,7 @@ var productController = require('../controller/product');
 var authConttoller = require('../controller/auth');
 
 router.get('/search/:cat',productController.getCatProduct);
+router.get('/searchAll/:cat',productController.getSearchProduct);
 router.get('/top/:topSearch',productController.getTopProduct);
 router.post('/', productController.createProduct);
 router.post('/:id', productController.updateProduct);

@@ -14,6 +14,7 @@ import { DataTransferService } from "../../services/data-transfer.service";
 export class NavigationComponent implements OnInit {
 
   Category: any;
+  searchKey: string;
 
   public isAdmin = 0;
   constructor(public productService: ProductService,
@@ -58,4 +59,19 @@ export class NavigationComponent implements OnInit {
       });
   }
 
+  searchProduct() {
+    if(!this.searchKey) {
+      return;
+    }
+
+    this.router.navigate(['/']);
+
+    this.productService.getSearchedProduct(this.searchKey)
+      .subscribe(data => {
+        this.getDataService.addSearchKey(data);
+        // console.log(this.searchKey);
+        console.log(data);
+      });
+
+  }
 }

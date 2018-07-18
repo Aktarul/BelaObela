@@ -8,6 +8,7 @@ export class DataTransferService {
 
   public newDataSubject = new Subject<any>();
   public newCatSubject = new Subject<any>();
+  public searchData = new Subject<any>();
   constructor(private http: Http) { }
 
   addData(data) {
@@ -16,6 +17,10 @@ export class DataTransferService {
 
   addCategory(data2) {
     this.newCatSubject.next(data2);
+  }
+
+  addSearchKey(data3) {
+    this.searchData.next(data3);
   }
 
 }

@@ -9,8 +9,14 @@
         </h3>
       </a>
 
+
+
       <a id="menu-toggle" class="button dark" href="#"><i class="icon-reorder"></i></a>
       <nav id="navigation">
+        <div class="form1">
+          <input [(ngModel)]="searchKey" type="text" class="textbox" placeholder="Search">
+          <input (click)="searchProduct()" title="Search" type="submit" value="" class="button">
+        </div>
         <ul id="main-menu">
 
           <li><a href="/">Home</a></li>
@@ -28,13 +34,13 @@
               </li>
 
               <!--<li>         &lt;!&ndash;   Category sub list &ndash;&gt;-->
-                <!--<a class="parent" href="#"><i class="icon-file-alt"></i> Pages</a>-->
-                <!--<ul class="sub-menu">-->
-                  <!--<li><a href="#">Full Width</a></li>-->
-                  <!--<li><a href="#">Left Sidebar</a></li>-->
-                  <!--<li><a href="#">Right Sidebar</a></li>-->
-                  <!--<li><a href="#">Double Sidebar</a></li>-->
-                <!--</ul>-->
+              <!--<a class="parent" href="#"><i class="icon-file-alt"></i> Pages</a>-->
+              <!--<ul class="sub-menu">-->
+              <!--<li><a href="#">Full Width</a></li>-->
+              <!--<li><a href="#">Left Sidebar</a></li>-->
+              <!--<li><a href="#">Right Sidebar</a></li>-->
+              <!--<li><a href="#">Double Sidebar</a></li>-->
+              <!--</ul>-->
               <!--</li>-->
             </ul>
           </li>
@@ -51,8 +57,8 @@
                 <a [routerLink]="['/product']"> Add Product</a>
               </li>
               <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >
-              <a [routerLink]="['/category']"> Add Category</a>
-            </li>
+                <a [routerLink]="['/category']"> Add Category</a>
+              </li>
             </ul>
           </li>
 

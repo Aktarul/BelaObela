@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
     this.subCatService.getSubCategory()
       .subscribe(res => {
         this.Sub_Category = res.data;
-      } )
+      } );
 
     this.dataTransferService.newDataSubject.subscribe(
       data => {
@@ -79,6 +79,16 @@ export class HomeComponent implements OnInit {
             // console.log(data2);
           }
         )
+      }
+    );
+    // getting searched data
+    this.dataTransferService.searchData.subscribe(
+      data3 => {
+        // this.products = [];
+        this.products = data3.data;
+        // this.catBool = true;
+        this.allProductBool = true;
+        console.log(this.products);
       }
     );
 
