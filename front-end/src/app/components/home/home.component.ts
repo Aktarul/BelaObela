@@ -13,6 +13,7 @@ import { SubCategoryService } from "../../services/sub-category.service";
 })
 export class HomeComponent implements OnInit {
 
+  searchKey: string;
   temp_category: any;
   sub_Category: any;
   temp_Sub_Category_Product: any = [];
@@ -245,5 +246,19 @@ export class HomeComponent implements OnInit {
     }
     this.products = this.temp_Sub_Category_Product;
     console.log(this.products);
+  }
+
+  searchProduct() {
+    if(!this.searchKey) {
+      return;
+    }
+
+    this.router.navigate(['/']);
+
+    this.productService.getSearchedProduct(this.searchKey)
+      .subscribe(data => {
+        this.products = data.data;
+      });
+
   }
 }

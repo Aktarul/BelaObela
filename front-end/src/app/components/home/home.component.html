@@ -9,6 +9,13 @@
       </div>
     </div>
 
+    <div class="mobile_search">
+    <div class="form1 catView2">
+      <input [(ngModel)]="searchKey" type="text" class="textbox" placeholder="Search">
+      <input (click)="searchProduct()" title="Search" type="submit" value="" class="button">
+    </div>
+    </div>
+
     <div *ngIf="catBool" class="catView">
       Selected Category: <b>{{ selectedCat }}</b>
       <br><br>

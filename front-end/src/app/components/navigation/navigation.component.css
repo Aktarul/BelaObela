@@ -249,11 +249,13 @@ ul.sub-menu > li > a.parent {
   }
 }
 
-
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 710px) {
   .link_logo {
     visibility: hidden;
   }
+}
+
+@media screen and (max-width: 1000px) {
   .form1 {
     visibility: hidden;
   }
@@ -287,17 +289,6 @@ ul.sub-menu > li > a.parent {
 
 
 /*search box*/
-
-/*body {*/
-  /*!*background: rgb(10,010,10);*!*/
-  /*-webkit-background-size: cover;*/
-  /*-moz-background-size: cover;*/
-  /*-o-background-size: cover;*/
-  /*background-size: cover;*/
-  /*font-family: 'Roboto', Tahoma, Arial, sans-serif;*/
-  /*line-height: 1.5;*/
-  /*font-size: 13px;*/
-/*}*/
 
 .form1 {
   outline: 0;
