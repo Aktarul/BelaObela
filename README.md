@@ -1,5 +1,5 @@
 # BelaObela
-Belaobela.com is an e-commerce site which is fully managed platform and developed for production. It is an online shop where customers can get their desired products within a single click. This will save shopping time of customers.
+Belaobela.com is an e-commerce site which is fully managed platform and developed for production. It is an online shop where customers can get their desired products within a single click. This will save shopping time of customers. Visit the web application [Live](http://belaobela.us.openode.io).
 
 ## Installation
   1. Clone this repositry : `git clone https://github.com/Aktarul/BelaObela.git`
