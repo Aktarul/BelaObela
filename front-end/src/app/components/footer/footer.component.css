@@ -1,19 +1,21 @@
 .footer-distributed{
-	background-color: #292c2f;
+	background: rgb(124, 172, 172, 0.8);
 	/*background-color: rgb(245,245,245);*/
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: bold 11px sans-serif;
+	border-top: 1px solid rgb(50, 121, 116);
 
 	padding: 5px 5px;
 	margin-top: 0px;
+	min-height: 150px;
 
     /*position fixed*/
   left: 0px;
   bottom: 0;
-  position: fixed;
+  /* position: fixed; */
 }
 
 @media screen and (max-width: 900px){
@@ -31,18 +33,18 @@
 
 
 .footer-distributed .footer-left{
-	width: 40%;
-  margin-left: 20px;
+	width: 35%;
+ 	margin-left: 20px;
 }
 
 .footer-distributed h3{
 	color:  #ffffff;
-	font: normal 30px 'Cookie', cursive;
+	font: normal 50px 'Cookie', cursive;
 	margin: 0;
 }
 
 .footer-distributed h3 span{
-	color:  #5383d3;
+	color:  #000;
 }
 
 .footer-distributed .footer-links{
@@ -56,11 +58,21 @@
 	line-height: 1.8;
 	text-decoration: none;
 	color:  inherit;
-  font-size: 110%;
+  	font-size: 130%;
+}
+
+.footer-distributed .footer-extra-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+	text-shadow: rgba(0, 0, 0, 0.12);
+	font-size: 130%;
+	margin-left: 15px;
 }
 
 .footer-distributed .footer-company-name{
-	color:  #8f9296;
+	color:  #172923;
 	font-size: 14px;
 	font-weight: normal;
 	margin: 0;
@@ -91,16 +103,17 @@
 
 .footer-distributed .footer-center p{
 	display: inline-block;
-	color: #ffffff;
-	vertical-align: middle;
+	color: rgb(28, 61, 58);
+	font-size: 120%;
+	/* vertical-align: middle; */
 	margin:0;
 }
 
 .footer-distributed .footer-center p span{
 	display:block;
 	font-weight: normal;
-	font-size:14px;
-	line-height:2;
+	font-size:18px;
+	line-height: 2;
 }
 
 .footer-distributed .footer-center p a{
@@ -114,10 +127,10 @@
 
 .footer-distributed .footer-company-about{
 	line-height: 20px;
-	color:  #ccc;
-	font-size: 13px;
+	color:  rgb(21, 58, 55);
+	font-size: 15px;
 	font-weight: normal;
-	margin: 0;
+	margin-top: 5px;
 }
 
 .footer-distributed .footer-company-about span{

@@ -33,8 +33,10 @@ ol, ul {
   float: left;
 }
 
+/* Main Header */
 #wrap > header {
-  background-color: #333;
+  /* background-color: #333; */
+  background: rgb(124, 172, 172);
   padding-bottom: 5px;
   padding-top: 5px;
 }
@@ -57,7 +59,7 @@ ol, ul {
 
 /* HEADER > MENU */
 #main-menu {
-  float: right;
+  float: right;;
   font-size: 0;
   margin: 10px 0;
 }
@@ -69,10 +71,10 @@ ol, ul {
 }
 
 #main-menu > li.parent {
-  /*background-image: url(./images/plus-gray.png);*/
-  /*background-size: 10px 10px;*/
-  /*background-repeat: no-repeat;*/
-  /*background-position: left center;*/
+  /* background-image: url(./images/plus-gray.png);
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+  background-position: left center; */
 }
 
 #main-menu > li.plus {
@@ -92,7 +94,7 @@ ol, ul {
 }
 
 #main-menu > li > a {
-  color: #eee;
+  color: #fff;
   font-size: 15px;
   line-height: 14px;
   padding: 20px 0;
@@ -101,7 +103,7 @@ ol, ul {
 
 #main-menu > li:hover > a,
 #main-menu > li.current-menu-item > a {
-  color: rgb(100, 150, 255);
+  color: rgb(0, 0, 0);
 }
 
 #main-menu li {
@@ -128,9 +130,10 @@ ul.sub-menu ul.sub-menu {
 
 ul.sub-menu > li > a {
   background-color: #333;
-  border: 1px solid #444;
+  background-color: rgb(108, 167, 167);
+  text-shadow: rgba(0, 0, 0, 0.12);
   border-top: none;
-  color: #bbb;
+  color: rgb(255, 255, 255);
   display: block;
   font-size: 13px;
   line-height: 15px;
@@ -139,12 +142,12 @@ ul.sub-menu > li > a {
 
 ul.sub-menu > li > a:hover {
   /*background-color: #2a2a2a;*/
-  background-color: #999;
+  background-color: rgb(51, 78, 74);
   color: #fff;
 }
 
 ul.sub-menu > li:first-child {
-  border-top: 3px solid rgb(100, 150, 255);
+  border-top: 3px solid rgb(33, 46, 44);
 }
 
 ul.sub-menu ul.sub-menu > li:first-child {
