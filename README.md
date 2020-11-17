@@ -25,5 +25,26 @@ After completing installation create at least one Admin. Here are the steps,
 Thus getting an admin gives abilities to add, update, delete products, manage users, orders and complains.
 
 
+## UI-Design with Angular
+
+#### _Homepage_
+![Screenshot-1](screenshots/Screenshot-1.png)
+
+#### _Register and Login_
+![Screenshot-2](screenshots/Screenshot-2.png)
+
+#### _Product Details_
+![Screenshot-3](screenshots/Screenshot-3.png)
+
+#### _Shopping Cart_
+![Screenshot-4](screenshots/Screenshot-4.png)
+
+#### _Category Management_
+![Screenshot-5](screenshots/Screenshot-5.png)
+
+#### _Footer_
+![Screenshot-6](screenshots/Screenshot-6.png)
+
+
 ## Licence
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
